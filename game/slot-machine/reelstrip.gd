@@ -155,15 +155,7 @@ func _process_snap(delta):
 	_has_processed_snap = true
 		
 func _on_snap_complete():
-	print("--- RESULT SYMBOL NODE ----------")
-	print("_on_snap_complete() REEL INDEX->", _index)
-	print("result_symbol_nodes[0]->", result_symbol_nodes[0].symbol_id)
-	print("result_symbol_nodes[1]->", result_symbol_nodes[1].symbol_id)
-	print("result_symbol_nodes[2]->", result_symbol_nodes[2].symbol_id)
-	print("--- RESULT SYMBOL NODE ----------")
-	
 	emit_signal("spin_complete")
-	
 	current_spin_stage = spin_stages.idle
 
 func _update_symbol_visual(symbol_node, distance):

@@ -1,11 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjqmdgruf7pkf"]
+[gd_scene load_steps=13 format=3 uid="uid://bjqmdgruf7pkf"]
 
 [ext_resource type="Script" path="res://game/slot-machine/slot-machine.gd" id="1_rikjq"]
 [ext_resource type="Script" path="res://game/slot-machine/slot-config.gd" id="2_7tm4g"]
-[ext_resource type="Texture2D" uid="uid://dv0pjphm2y3ym" path="res://game/assets/user-interface/03.png" id="4_jkiq6"]
-[ext_resource type="Texture2D" uid="uid://creddswfpc2s4" path="res://game/assets/user-interface/04.png" id="5_3kt08"]
-[ext_resource type="Texture2D" uid="uid://0otfcfr68svb" path="res://game/assets/user-interface/05.png" id="6_kbuln"]
-[ext_resource type="Texture2D" uid="uid://dsbixdbamr574" path="res://game/assets/user-interface/06.png" id="7_2rq5v"]
+[ext_resource type="Texture2D" uid="uid://dnbj54y4hmdsy" path="res://game/assets/user-interface/banner/Banner_Horizontal.png" id="4_b5f3b"]
+[ext_resource type="Texture2D" uid="uid://dcu1boj1kfkx3" path="res://game/assets/user-interface/banner/Carved_9Slides.png" id="7_eejt8"]
+[ext_resource type="Texture2D" uid="uid://bdhpnmk100h4" path="res://game/assets/user-interface/buttons/Button_Blue_9Slides_Pressed.png" id="8_ule80"]
+[ext_resource type="Texture2D" uid="uid://cqvtxoictvhgy" path="res://game/assets/user-interface/buttons/Button_Blue_9Slides.png" id="9_kh4nu"]
+
+[sub_resource type="Theme" id="Theme_cp18x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jebk5"]
+texture = ExtResource("9_kh4nu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exl15"]
+texture = ExtResource("9_kh4nu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n58nd"]
+texture = ExtResource("8_ule80")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwtf1"]
+texture = ExtResource("8_ule80")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ayfwf"]
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_rikjq")
@@ -17,111 +33,91 @@ script = ExtResource("2_7tm4g")
 [node name="StaggerTimer" type="Timer" parent="."]
 wait_time = 0.15
 
+[node name="SlotBanner" type="Node2D" parent="."]
+position = Vector2(424, 736)
+
+[node name="Banner" type="NinePatchRect" parent="SlotBanner"]
+offset_left = -60.0
+offset_top = -56.0
+offset_right = 700.0
+offset_bottom = 184.0
+theme = SubResource("Theme_cp18x")
+texture = ExtResource("4_b5f3b")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="BackFrame1" type="NinePatchRect" parent="SlotBanner"]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame2" type="NinePatchRect" parent="SlotBanner"]
+offset_left = 128.0
+offset_right = 256.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame3" type="NinePatchRect" parent="SlotBanner"]
+offset_left = 256.0
+offset_right = 384.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame4" type="NinePatchRect" parent="SlotBanner"]
+offset_left = 384.0
+offset_right = 512.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame5" type="NinePatchRect" parent="SlotBanner"]
+offset_left = 512.0
+offset_right = 640.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
 [node name="ReelsMask" type="Control" parent="."]
 clip_contents = true
 layout_mode = 3
-anchors_preset = 0
-offset_left = 416.0
-offset_top = 312.0
-offset_right = 1056.0
-offset_bottom = 440.0
-
-[node name="FrameGroup" type="Node2D" parent="ReelsMask"]
-z_index = 1
-
-[node name="Frame1" type="Node2D" parent="ReelsMask/FrameGroup"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame1"]
-position = Vector2(16, 16)
-texture = ExtResource("4_jkiq6")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame1"]
-position = Vector2(112, 16)
-texture = ExtResource("5_3kt08")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame1"]
-position = Vector2(16, 112)
-texture = ExtResource("6_kbuln")
-
-[node name="Sprite2D4" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame1"]
-position = Vector2(112, 112)
-texture = ExtResource("7_2rq5v")
-
-[node name="Frame2" type="Node2D" parent="ReelsMask/FrameGroup"]
-position = Vector2(128, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame2"]
-position = Vector2(16, 16)
-texture = ExtResource("4_jkiq6")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame2"]
-position = Vector2(112, 16)
-texture = ExtResource("5_3kt08")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame2"]
-position = Vector2(16, 112)
-texture = ExtResource("6_kbuln")
-
-[node name="Sprite2D4" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame2"]
-position = Vector2(112, 112)
-texture = ExtResource("7_2rq5v")
-
-[node name="Frame3" type="Node2D" parent="ReelsMask/FrameGroup"]
-position = Vector2(256, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame3"]
-position = Vector2(16, 16)
-texture = ExtResource("4_jkiq6")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame3"]
-position = Vector2(112, 16)
-texture = ExtResource("5_3kt08")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame3"]
-position = Vector2(16, 112)
-texture = ExtResource("6_kbuln")
-
-[node name="Sprite2D4" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame3"]
-position = Vector2(112, 112)
-texture = ExtResource("7_2rq5v")
-
-[node name="Frame4" type="Node2D" parent="ReelsMask/FrameGroup"]
-position = Vector2(384, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame4"]
-position = Vector2(16, 16)
-texture = ExtResource("4_jkiq6")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame4"]
-position = Vector2(112, 16)
-texture = ExtResource("5_3kt08")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame4"]
-position = Vector2(16, 112)
-texture = ExtResource("6_kbuln")
-
-[node name="Sprite2D4" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame4"]
-position = Vector2(112, 112)
-texture = ExtResource("7_2rq5v")
-
-[node name="Frame5" type="Node2D" parent="ReelsMask/FrameGroup"]
-position = Vector2(512, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame5"]
-position = Vector2(16, 16)
-texture = ExtResource("4_jkiq6")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame5"]
-position = Vector2(112, 16)
-texture = ExtResource("5_3kt08")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame5"]
-position = Vector2(16, 112)
-texture = ExtResource("6_kbuln")
-
-[node name="Sprite2D4" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame5"]
-position = Vector2(112, 112)
-texture = ExtResource("7_2rq5v")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 420.0
+offset_top = 743.0
+offset_right = 1060.0
+offset_bottom = 859.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(320, 128)
 
 [node name="UserInterface" type="Control" parent="."]
 layout_mode = 3
@@ -133,12 +129,35 @@ grow_vertical = 2
 
 [node name="SpinButton" type="Button" parent="UserInterface"]
 layout_mode = 1
-offset_left = 272.0
-offset_top = 312.0
-offset_right = 353.0
-offset_bottom = 365.0
+offset_left = 1128.0
+offset_top = 744.0
+offset_right = 1256.0
+offset_bottom = 872.0
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_jebk5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_exl15")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_n58nd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_bwtf1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ayfwf")
 text = "SPIN"
+icon_alignment = 1
+
+[node name="DeckButton" type="Button" parent="UserInterface"]
+layout_mode = 1
+offset_left = 224.0
+offset_top = 744.0
+offset_right = 352.0
+offset_bottom = 872.0
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_jebk5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_exl15")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_n58nd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_bwtf1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ayfwf")
+text = "DECK"
+icon_alignment = 1
 
 [connection signal="timeout" from="StaggerTimer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="UserInterface/SpinButton" to="." method="_on_spin_button_pressed"]

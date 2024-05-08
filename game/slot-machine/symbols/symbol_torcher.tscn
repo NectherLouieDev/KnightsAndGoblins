@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bt0r58kf1668l" path="res://game/assets/goblins/Torch_Blue.png" id="1_sdosy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hdqmm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s86ol"]
 atlas = ExtResource("1_sdosy")
 region = Rect2(0, 0, 192, 192)
 
@@ -10,7 +10,7 @@ region = Rect2(0, 0, 192, 192)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hdqmm")
+"texture": SubResource("AtlasTexture_s86ol")
 }],
 "loop": true,
 "name": &"Static",
@@ -20,6 +20,7 @@ animations = [{
 [node name="SymbolTorcher" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_cvle1")
 animation = &"Static"
 autoplay = "Static"
