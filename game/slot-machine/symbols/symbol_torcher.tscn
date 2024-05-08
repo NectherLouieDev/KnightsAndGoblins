@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjwe738q3y8dq"]
+
+[ext_resource type="Texture2D" uid="uid://bt0r58kf1668l" path="res://game/assets/goblins/Torch_Blue.png" id="1_sdosy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdqmm"]
+atlas = ExtResource("1_sdosy")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvle1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdqmm")
+}],
+"loop": true,
+"name": &"Static",
+"speed": 5.0
+}]
+
+[node name="SymbolTorcher" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cvle1")
+animation = &"Static"
+autoplay = "Static"
+frame_progress = 0.874105

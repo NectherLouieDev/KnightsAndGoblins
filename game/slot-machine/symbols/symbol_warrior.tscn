@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpfvrnd60po6f"]
+
+[ext_resource type="Texture2D" uid="uid://35j5owxw4sqn" path="res://game/assets/knights/Warrior_Blue.png" id="1_swnwi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipkua"]
+atlas = ExtResource("1_swnwi")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvle1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipkua")
+}],
+"loop": true,
+"name": &"Static",
+"speed": 5.0
+}]
+
+[node name="SymbolWarrior" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cvle1")
+animation = &"Static"
+autoplay = "Static"

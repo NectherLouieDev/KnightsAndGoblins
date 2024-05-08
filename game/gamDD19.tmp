@@ -1,0 +1,182 @@
+[gd_scene load_steps=8 format=3 uid="uid://b30xvq7r8txbk"]
+
+[ext_resource type="Script" path="res://game/slot-machine/reelstrip.gd" id="1_1qv6s"]
+[ext_resource type="Script" path="res://game/slot-machine/slot-machine.gd" id="1_l4bn4"]
+[ext_resource type="Script" path="res://game/slot-machine/slot-config.gd" id="6_l61m2"]
+[ext_resource type="Texture2D" uid="uid://dv0pjphm2y3ym" path="res://game/assets/user-interface/03.png" id="8_qm3fv"]
+[ext_resource type="Texture2D" uid="uid://creddswfpc2s4" path="res://game/assets/user-interface/04.png" id="9_jdvur"]
+[ext_resource type="Texture2D" uid="uid://0otfcfr68svb" path="res://game/assets/user-interface/05.png" id="10_kuu3t"]
+[ext_resource type="Texture2D" uid="uid://dsbixdbamr574" path="res://game/assets/user-interface/06.png" id="11_7c4y1"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 2000.0
+offset_bottom = 2000.0
+color = Color(0.278431, 0.670588, 0.662745, 1)
+
+[node name="SlotMachine" type="Node2D" parent="."]
+script = ExtResource("1_l4bn4")
+
+[node name="SlotConfig" type="Node2D" parent="SlotMachine"]
+unique_name_in_owner = true
+script = ExtResource("6_l61m2")
+
+[node name="ReelsMask" type="Control" parent="SlotMachine"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 120.0
+offset_top = 120.0
+offset_right = 248.0
+offset_bottom = 248.0
+
+[node name="Reelstrip1" type="Node2D" parent="SlotMachine/ReelsMask"]
+position = Vector2(64, -64)
+script = ExtResource("1_1qv6s")
+
+[node name="Reelstrip2" type="Node2D" parent="SlotMachine/ReelsMask"]
+position = Vector2(192, -64)
+script = ExtResource("1_1qv6s")
+
+[node name="Reelstrip3" type="Node2D" parent="SlotMachine/ReelsMask"]
+position = Vector2(320, -64)
+script = ExtResource("1_1qv6s")
+
+[node name="Reelstrip4" type="Node2D" parent="SlotMachine/ReelsMask"]
+position = Vector2(448, -64)
+script = ExtResource("1_1qv6s")
+
+[node name="Reelstrip5" type="Node2D" parent="SlotMachine/ReelsMask"]
+position = Vector2(576, -64)
+script = ExtResource("1_1qv6s")
+
+[node name="FrameGroup" type="Node2D" parent="SlotMachine/ReelsMask"]
+
+[node name="Frame" type="Node2D" parent="SlotMachine/ReelsMask/FrameGroup"]
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame"]
+position = Vector2(16, 16)
+texture = ExtResource("8_qm3fv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame"]
+position = Vector2(112, 16)
+texture = ExtResource("9_jdvur")
+
+[node name="Sprite2D3" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame"]
+position = Vector2(16, 112)
+texture = ExtResource("10_kuu3t")
+
+[node name="Sprite2D4" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame"]
+position = Vector2(112, 112)
+texture = ExtResource("11_7c4y1")
+
+[node name="Frame2" type="Node2D" parent="SlotMachine/ReelsMask/FrameGroup"]
+position = Vector2(128, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame2"]
+position = Vector2(16, 16)
+texture = ExtResource("8_qm3fv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame2"]
+position = Vector2(112, 16)
+texture = ExtResource("9_jdvur")
+
+[node name="Sprite2D3" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame2"]
+position = Vector2(16, 112)
+texture = ExtResource("10_kuu3t")
+
+[node name="Sprite2D4" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame2"]
+position = Vector2(112, 112)
+texture = ExtResource("11_7c4y1")
+
+[node name="Frame3" type="Node2D" parent="SlotMachine/ReelsMask/FrameGroup"]
+position = Vector2(256, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame3"]
+position = Vector2(16, 16)
+texture = ExtResource("8_qm3fv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame3"]
+position = Vector2(112, 16)
+texture = ExtResource("9_jdvur")
+
+[node name="Sprite2D3" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame3"]
+position = Vector2(16, 112)
+texture = ExtResource("10_kuu3t")
+
+[node name="Sprite2D4" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame3"]
+position = Vector2(112, 112)
+texture = ExtResource("11_7c4y1")
+
+[node name="Frame4" type="Node2D" parent="SlotMachine/ReelsMask/FrameGroup"]
+position = Vector2(384, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame4"]
+position = Vector2(16, 16)
+texture = ExtResource("8_qm3fv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame4"]
+position = Vector2(112, 16)
+texture = ExtResource("9_jdvur")
+
+[node name="Sprite2D3" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame4"]
+position = Vector2(16, 112)
+texture = ExtResource("10_kuu3t")
+
+[node name="Sprite2D4" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame4"]
+position = Vector2(112, 112)
+texture = ExtResource("11_7c4y1")
+
+[node name="Frame5" type="Node2D" parent="SlotMachine/ReelsMask/FrameGroup"]
+position = Vector2(512, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame5"]
+position = Vector2(16, 16)
+texture = ExtResource("8_qm3fv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame5"]
+position = Vector2(112, 16)
+texture = ExtResource("9_jdvur")
+
+[node name="Sprite2D3" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame5"]
+position = Vector2(16, 112)
+texture = ExtResource("10_kuu3t")
+
+[node name="Sprite2D4" type="Sprite2D" parent="SlotMachine/ReelsMask/FrameGroup/Frame5"]
+position = Vector2(112, 112)
+texture = ExtResource("11_7c4y1")
+
+[node name="UserInterface" type="Control" parent="SlotMachine"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpinButton" type="Button" parent="SlotMachine/UserInterface"]
+layout_mode = 1
+offset_left = 272.0
+offset_top = 312.0
+offset_right = 353.0
+offset_bottom = 365.0
+theme_override_font_sizes/font_size = 32
+text = "SPIN"
+
+[node name="StopButton" type="Button" parent="SlotMachine/UserInterface"]
+offset_left = 272.0
+offset_top = 392.0
+offset_right = 361.0
+offset_bottom = 445.0
+theme_override_font_sizes/font_size = 32
+text = "STOP"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 128.0
+offset_bottom = 128.0
+
+[connection signal="pressed" from="SlotMachine/UserInterface/SpinButton" to="SlotMachine" method="_on_spin_button_pressed"]
+[connection signal="pressed" from="SlotMachine/UserInterface/StopButton" to="SlotMachine" method="_on_stop_button_pressed"]

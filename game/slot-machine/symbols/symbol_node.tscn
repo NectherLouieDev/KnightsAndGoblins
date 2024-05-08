@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbo41b3qn8jp7"]
+
+[ext_resource type="Script" path="res://game/slot-machine/symbols/symbol-node.gd" id="1_ljvcq"]
+
+[node name="SymbolNode" type="Node2D"]
+script = ExtResource("1_ljvcq")

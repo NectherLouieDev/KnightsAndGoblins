@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://xm3n63pc25gm"]
+
+[ext_resource type="Texture2D" uid="uid://dxxsgi3yvfb88" path="res://game/assets/goblins/TNT_Blue.png" id="2_pr114"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fpua"]
+atlas = ExtResource("2_pr114")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvle1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fpua")
+}],
+"loop": true,
+"name": &"Static",
+"speed": 5.0
+}]
+
+[node name="SymbolThrower" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cvle1")
+animation = &"Static"
+autoplay = "Static"
+frame_progress = 0.793753

@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjqmdgruf7pkf"]
+
+[ext_resource type="Script" path="res://game/slot-machine/slot-machine.gd" id="1_rikjq"]
+[ext_resource type="Script" path="res://game/slot-machine/slot-config.gd" id="2_7tm4g"]
+[ext_resource type="Texture2D" uid="uid://dv0pjphm2y3ym" path="res://game/assets/user-interface/03.png" id="4_jkiq6"]
+[ext_resource type="Texture2D" uid="uid://creddswfpc2s4" path="res://game/assets/user-interface/04.png" id="5_3kt08"]
+[ext_resource type="Texture2D" uid="uid://0otfcfr68svb" path="res://game/assets/user-interface/05.png" id="6_kbuln"]
+[ext_resource type="Texture2D" uid="uid://dsbixdbamr574" path="res://game/assets/user-interface/06.png" id="7_2rq5v"]
+
+[node name="SlotMachine" type="Node2D"]
+script = ExtResource("1_rikjq")
+
+[node name="SlotConfig" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_7tm4g")
+
+[node name="StaggerTimer" type="Timer" parent="."]
+wait_time = 0.15
+
+[node name="ReelsMask" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 416.0
+offset_top = 312.0
+offset_right = 1056.0
+offset_bottom = 440.0
+
+[node name="FrameGroup" type="Node2D" parent="ReelsMask"]
+z_index = 1
+
+[node name="Frame1" type="Node2D" parent="ReelsMask/FrameGroup"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame1"]
+position = Vector2(16, 16)
+texture = ExtResource("4_jkiq6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame1"]
+position = Vector2(112, 16)
+texture = ExtResource("5_3kt08")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame1"]
+position = Vector2(16, 112)
+texture = ExtResource("6_kbuln")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame1"]
+position = Vector2(112, 112)
+texture = ExtResource("7_2rq5v")
+
+[node name="Frame2" type="Node2D" parent="ReelsMask/FrameGroup"]
+position = Vector2(128, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame2"]
+position = Vector2(16, 16)
+texture = ExtResource("4_jkiq6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame2"]
+position = Vector2(112, 16)
+texture = ExtResource("5_3kt08")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame2"]
+position = Vector2(16, 112)
+texture = ExtResource("6_kbuln")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame2"]
+position = Vector2(112, 112)
+texture = ExtResource("7_2rq5v")
+
+[node name="Frame3" type="Node2D" parent="ReelsMask/FrameGroup"]
+position = Vector2(256, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame3"]
+position = Vector2(16, 16)
+texture = ExtResource("4_jkiq6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame3"]
+position = Vector2(112, 16)
+texture = ExtResource("5_3kt08")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame3"]
+position = Vector2(16, 112)
+texture = ExtResource("6_kbuln")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame3"]
+position = Vector2(112, 112)
+texture = ExtResource("7_2rq5v")
+
+[node name="Frame4" type="Node2D" parent="ReelsMask/FrameGroup"]
+position = Vector2(384, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame4"]
+position = Vector2(16, 16)
+texture = ExtResource("4_jkiq6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame4"]
+position = Vector2(112, 16)
+texture = ExtResource("5_3kt08")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame4"]
+position = Vector2(16, 112)
+texture = ExtResource("6_kbuln")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame4"]
+position = Vector2(112, 112)
+texture = ExtResource("7_2rq5v")
+
+[node name="Frame5" type="Node2D" parent="ReelsMask/FrameGroup"]
+position = Vector2(512, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame5"]
+position = Vector2(16, 16)
+texture = ExtResource("4_jkiq6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame5"]
+position = Vector2(112, 16)
+texture = ExtResource("5_3kt08")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame5"]
+position = Vector2(16, 112)
+texture = ExtResource("6_kbuln")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ReelsMask/FrameGroup/Frame5"]
+position = Vector2(112, 112)
+texture = ExtResource("7_2rq5v")
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpinButton" type="Button" parent="UserInterface"]
+layout_mode = 1
+offset_left = 272.0
+offset_top = 312.0
+offset_right = 353.0
+offset_bottom = 365.0
+theme_override_font_sizes/font_size = 32
+text = "SPIN"
+
+[connection signal="timeout" from="StaggerTimer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="UserInterface/SpinButton" to="." method="_on_spin_button_pressed"]

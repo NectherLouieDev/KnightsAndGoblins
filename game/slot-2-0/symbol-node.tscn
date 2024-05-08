@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://0c6kj1l4wwh0"]
+
+[ext_resource type="Texture2D" uid="uid://35j5owxw4sqn" path="res://game/assets/knights/Warrior_Blue.png" id="1_3iq4m"]
+[ext_resource type="Texture2D" uid="uid://ng1q8xaq70qh" path="res://game/assets/knights/Archer_Blue.png" id="1_4ba4h"]
+[ext_resource type="Script" path="res://game/slot-2-0/symbol-node.gd" id="1_tg0r6"]
+[ext_resource type="Texture2D" uid="uid://bt0r58kf1668l" path="res://game/assets/goblins/Torch_Blue.png" id="4_d5vhr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h40nv"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xu0u"]
+atlas = ExtResource("1_4ba4h")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmams"]
+atlas = ExtResource("1_3iq4m")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cijhb"]
+atlas = ExtResource("4_d5vhr")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d6vlo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xu0u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmams")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cijhb")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[node name="SymbolNode" type="Area2D"]
+script = ExtResource("1_tg0r6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h40nv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d6vlo")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d6vlo")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d6vlo")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
