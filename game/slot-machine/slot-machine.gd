@@ -1,14 +1,14 @@
 extends Node2D
 
 @onready var slot_config = %SlotConfig
-@onready var reels_mask = $ReelsMask
+@onready var reels_mask = $SlotBanner/ReelsMask1
 
 var reelstrips = []
 var reel_count = 5
 var reel_index = 0
 
-@onready var spin_button = $UserInterface/SpinButton
 @onready var stagger_timer = $StaggerTimer
+@onready var spin_button = $SpinButtonGroup/SpinButton
 
 func _ready():
 	reelstrips = []

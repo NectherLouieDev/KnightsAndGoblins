@@ -155,6 +155,13 @@ func _process_snap(delta):
 	_has_processed_snap = true
 		
 func _on_snap_complete():
+	print("_on_snap_complete()------------------>", _index)
+	print("_reel_properties.top_index----------->", _reel_properties.top_index)
+	print("_reel_properties.bottom_index ------->", _reel_properties.bottom_index)
+	print("result_symbol_nodes[0]->", result_symbol_nodes[0].position.y)
+	print("result_symbol_nodes[1]->", result_symbol_nodes[1].position.y)
+	print("result_symbol_nodes[2]->", result_symbol_nodes[2].position.y)
+	
 	emit_signal("spin_complete")
 	current_spin_stage = spin_stages.idle
 

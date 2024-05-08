@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo45aupfxm5ou"
-path="res://.godot/imported/02.png-f07d08af8cd5db0b7f34ebc26675d153.ctex"
+uid="uid://bbdbcgn6enbtw"
+path="res://.godot/imported/Disable_03.png-6d045c0d51e76b23c5b0fa736b73719a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/assets/user-interface/02.png"
-dest_files=["res://.godot/imported/02.png-f07d08af8cd5db0b7f34ebc26675d153.ctex"]
+source_file="res://game/assets/user-interface/icons/Disable_03.png"
+dest_files=["res://.godot/imported/Disable_03.png-6d045c0d51e76b23c5b0fa736b73719a.ctex"]
 
 [params]
 

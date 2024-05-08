@@ -1,27 +1,34 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjqmdgruf7pkf"]
+[gd_scene load_steps=20 format=3 uid="uid://bjqmdgruf7pkf"]
 
 [ext_resource type="Script" path="res://game/slot-machine/slot-machine.gd" id="1_rikjq"]
 [ext_resource type="Script" path="res://game/slot-machine/slot-config.gd" id="2_7tm4g"]
-[ext_resource type="Texture2D" uid="uid://dnbj54y4hmdsy" path="res://game/assets/user-interface/banner/Banner_Horizontal.png" id="4_b5f3b"]
+[ext_resource type="Texture2D" uid="uid://c6affpyrw1nn5" path="res://game/assets/user-interface/banner/Banner_Vertical.png" id="3_cb8ts"]
+[ext_resource type="FontFile" uid="uid://btiou0g2n8itb" path="res://game/assets/fonts/NotoSerifDisplay-Black.ttf" id="5_8vby3"]
+[ext_resource type="Texture2D" uid="uid://yeuasntc6u4o" path="res://game/assets/user-interface/buttons/Button_Hover_9Slides.png" id="6_jw84o"]
 [ext_resource type="Texture2D" uid="uid://dcu1boj1kfkx3" path="res://game/assets/user-interface/banner/Carved_9Slides.png" id="7_eejt8"]
+[ext_resource type="Texture2D" uid="uid://dmeyv608yp2pu" path="res://game/assets/user-interface/banner/Banner_Connection_Left.png" id="7_xa0ef"]
 [ext_resource type="Texture2D" uid="uid://bdhpnmk100h4" path="res://game/assets/user-interface/buttons/Button_Blue_9Slides_Pressed.png" id="8_ule80"]
+[ext_resource type="Texture2D" uid="uid://k5stemyj7mvh" path="res://game/assets/user-interface/buttons/Button_Disable_9Slides.png" id="8_ydl3m"]
 [ext_resource type="Texture2D" uid="uid://cqvtxoictvhgy" path="res://game/assets/user-interface/buttons/Button_Blue_9Slides.png" id="9_kh4nu"]
-
-[sub_resource type="Theme" id="Theme_cp18x"]
+[ext_resource type="Texture2D" uid="uid://drmpqdwgxspgg" path="res://game/assets/user-interface/icons/Regular_08.png" id="11_n4qyh"]
+[ext_resource type="Texture2D" uid="uid://khmyww5tv874" path="res://game/assets/user-interface/icons/Pressed_08.png" id="12_cavjx"]
+[ext_resource type="Texture2D" uid="uid://b7waa3ehtpy8s" path="res://game/assets/user-interface/icons/Disable_08.png" id="13_3sthc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jebk5"]
 texture = ExtResource("9_kh4nu")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exl15"]
-texture = ExtResource("9_kh4nu")
+texture = ExtResource("6_jw84o")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n58nd"]
 texture = ExtResource("8_ule80")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwtf1"]
-texture = ExtResource("8_ule80")
+texture = ExtResource("8_ydl3m")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ayfwf"]
+
+[sub_resource type="Theme" id="Theme_cp18x"]
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_rikjq")
@@ -33,23 +40,77 @@ script = ExtResource("2_7tm4g")
 [node name="StaggerTimer" type="Timer" parent="."]
 wait_time = 0.15
 
-[node name="SlotBanner" type="Node2D" parent="."]
-position = Vector2(424, 736)
+[node name="SpinButtonGroup" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 664.0
+offset_top = 88.0
+offset_right = 664.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Banner" type="NinePatchRect" parent="SlotBanner"]
-offset_left = -60.0
-offset_top = -56.0
-offset_right = 700.0
-offset_bottom = 184.0
-theme = SubResource("Theme_cp18x")
-texture = ExtResource("4_b5f3b")
+[node name="SpinButtonBanner" type="NinePatchRect" parent="SpinButtonGroup"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("7_xa0ef")
 region_rect = Rect2(0, 0, 192, 192)
 patch_margin_left = 64
 patch_margin_top = 64
 patch_margin_right = 64
 patch_margin_bottom = 64
 
-[node name="BackFrame1" type="NinePatchRect" parent="SlotBanner"]
+[node name="BackFrame11" type="NinePatchRect" parent="SpinButtonGroup"]
+offset_left = 56.0
+offset_top = 64.0
+offset_right = 184.0
+offset_bottom = 192.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="SpinButton" type="Button" parent="SpinButtonGroup"]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 64.0
+offset_right = 184.0
+offset_bottom = 192.0
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
+theme_override_fonts/font = ExtResource("5_8vby3")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_jebk5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_exl15")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_n58nd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_bwtf1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ayfwf")
+text = "SPIN"
+icon_alignment = 1
+
+[node name="SlotBanner" type="Node2D" parent="."]
+position = Vector2(32, 32)
+
+[node name="Banner" type="NinePatchRect" parent="SlotBanner"]
+offset_left = -60.0
+offset_top = -56.0
+offset_right = 700.0
+offset_bottom = 439.0
+theme = SubResource("Theme_cp18x")
+texture = ExtResource("3_cb8ts")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="Row1" type="Node2D" parent="SlotBanner"]
+
+[node name="BackFrame1" type="NinePatchRect" parent="SlotBanner/Row1"]
 offset_right = 128.0
 offset_bottom = 128.0
 texture = ExtResource("7_eejt8")
@@ -59,7 +120,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="BackFrame2" type="NinePatchRect" parent="SlotBanner"]
+[node name="BackFrame2" type="NinePatchRect" parent="SlotBanner/Row1"]
 offset_left = 128.0
 offset_right = 256.0
 offset_bottom = 128.0
@@ -70,7 +131,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="BackFrame3" type="NinePatchRect" parent="SlotBanner"]
+[node name="BackFrame3" type="NinePatchRect" parent="SlotBanner/Row1"]
 offset_left = 256.0
 offset_right = 384.0
 offset_bottom = 128.0
@@ -81,7 +142,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="BackFrame4" type="NinePatchRect" parent="SlotBanner"]
+[node name="BackFrame4" type="NinePatchRect" parent="SlotBanner/Row1"]
 offset_left = 384.0
 offset_right = 512.0
 offset_bottom = 128.0
@@ -92,7 +153,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="BackFrame5" type="NinePatchRect" parent="SlotBanner"]
+[node name="BackFrame5" type="NinePatchRect" parent="SlotBanner/Row1"]
 offset_left = 512.0
 offset_right = 640.0
 offset_bottom = 128.0
@@ -103,7 +164,121 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="ReelsMask" type="Control" parent="."]
+[node name="Row2" type="Node2D" parent="SlotBanner"]
+position = Vector2(0, 128)
+
+[node name="BackFrame6" type="NinePatchRect" parent="SlotBanner/Row2"]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame7" type="NinePatchRect" parent="SlotBanner/Row2"]
+offset_left = 128.0
+offset_right = 256.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame8" type="NinePatchRect" parent="SlotBanner/Row2"]
+offset_left = 256.0
+offset_right = 384.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame9" type="NinePatchRect" parent="SlotBanner/Row2"]
+offset_left = 384.0
+offset_right = 512.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame10" type="NinePatchRect" parent="SlotBanner/Row2"]
+offset_left = 512.0
+offset_right = 640.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Row3" type="Node2D" parent="SlotBanner"]
+position = Vector2(0, 256)
+
+[node name="BackFrame11" type="NinePatchRect" parent="SlotBanner/Row3"]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame12" type="NinePatchRect" parent="SlotBanner/Row3"]
+offset_left = 128.0
+offset_right = 256.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame13" type="NinePatchRect" parent="SlotBanner/Row3"]
+offset_left = 256.0
+offset_right = 384.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame14" type="NinePatchRect" parent="SlotBanner/Row3"]
+offset_left = 384.0
+offset_right = 512.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="BackFrame15" type="NinePatchRect" parent="SlotBanner/Row3"]
+offset_left = 512.0
+offset_right = 640.0
+offset_bottom = 128.0
+texture = ExtResource("7_eejt8")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ReelsMask1" type="Control" parent="SlotBanner"]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 7
@@ -111,53 +286,224 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 420.0
-offset_top = 743.0
-offset_right = 1060.0
-offset_bottom = 859.0
+offset_top = 7.0
+offset_right = 640.0
+offset_bottom = 123.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(320, 128)
 
-[node name="UserInterface" type="Control" parent="."]
+[node name="Unlocks" type="Node2D" parent="SlotBanner"]
+
+[node name="UnlockRow1" type="Control" parent="SlotBanner/Unlocks"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="SpinButton" type="Button" parent="UserInterface"]
-layout_mode = 1
-offset_left = 1128.0
-offset_top = 744.0
-offset_right = 1256.0
-offset_bottom = 872.0
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_jebk5")
-theme_override_styles/hover = SubResource("StyleBoxTexture_exl15")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_n58nd")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_bwtf1")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ayfwf")
-text = "SPIN"
-icon_alignment = 1
+[node name="UnlockButton1" type="Control" parent="SlotBanner/Unlocks/UnlockRow1"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 128.0
+offset_right = 128.0
+offset_bottom = 256.0
 
-[node name="DeckButton" type="Button" parent="UserInterface"]
-layout_mode = 1
-offset_left = 224.0
-offset_top = 744.0
-offset_right = 352.0
-offset_bottom = 872.0
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_jebk5")
-theme_override_styles/hover = SubResource("StyleBoxTexture_exl15")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_n58nd")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_bwtf1")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ayfwf")
-text = "DECK"
-icon_alignment = 1
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow1/UnlockButton1"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_n4qyh")
+texture_pressed = ExtResource("12_cavjx")
+texture_hover = ExtResource("11_n4qyh")
+texture_disabled = ExtResource("13_3sthc")
+texture_focused = ExtResource("11_n4qyh")
+
+[node name="UnlockButton2" type="Control" parent="SlotBanner/Unlocks/UnlockRow1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 256.0
+offset_bottom = 256.0
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow1/UnlockButton2"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_n4qyh")
+texture_pressed = ExtResource("12_cavjx")
+texture_hover = ExtResource("11_n4qyh")
+texture_disabled = ExtResource("13_3sthc")
+texture_focused = ExtResource("11_n4qyh")
+
+[node name="UnlockButton3" type="Control" parent="SlotBanner/Unlocks/UnlockRow1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 384.0
+offset_bottom = 256.0
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow1/UnlockButton3"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_n4qyh")
+texture_pressed = ExtResource("12_cavjx")
+texture_hover = ExtResource("11_n4qyh")
+texture_disabled = ExtResource("13_3sthc")
+texture_focused = ExtResource("11_n4qyh")
+
+[node name="UnlockButton4" type="Control" parent="SlotBanner/Unlocks/UnlockRow1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 512.0
+offset_bottom = 256.0
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow1/UnlockButton4"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_n4qyh")
+texture_pressed = ExtResource("12_cavjx")
+texture_hover = ExtResource("11_n4qyh")
+texture_disabled = ExtResource("13_3sthc")
+texture_focused = ExtResource("11_n4qyh")
+
+[node name="UnlockButton5" type="Control" parent="SlotBanner/Unlocks/UnlockRow1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 512.0
+offset_top = 128.0
+offset_right = 640.0
+offset_bottom = 256.0
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow1/UnlockButton5"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_n4qyh")
+texture_pressed = ExtResource("12_cavjx")
+texture_hover = ExtResource("11_n4qyh")
+texture_disabled = ExtResource("13_3sthc")
+texture_focused = ExtResource("11_n4qyh")
+
+[node name="UnlockRow2" type="Control" parent="SlotBanner/Unlocks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UnlockButton6" type="Control" parent="SlotBanner/Unlocks/UnlockRow2"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 256.0
+offset_right = 128.0
+offset_bottom = 384.0
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow2/UnlockButton6"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_n4qyh")
+texture_pressed = ExtResource("12_cavjx")
+texture_hover = ExtResource("11_n4qyh")
+texture_disabled = ExtResource("13_3sthc")
+texture_focused = ExtResource("11_n4qyh")
+
+[node name="UnlockButton7" type="Control" parent="SlotBanner/Unlocks/UnlockRow2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 128.0
+offset_top = 256.0
+offset_right = 256.0
+offset_bottom = 384.0
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow2/UnlockButton7"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_n4qyh")
+texture_pressed = ExtResource("12_cavjx")
+texture_hover = ExtResource("11_n4qyh")
+texture_disabled = ExtResource("13_3sthc")
+texture_focused = ExtResource("11_n4qyh")
+
+[node name="UnlockButton8" type="Control" parent="SlotBanner/Unlocks/UnlockRow2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 256.0
+offset_right = 384.0
+offset_bottom = 384.0
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow2/UnlockButton8"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_n4qyh")
+texture_pressed = ExtResource("12_cavjx")
+texture_hover = ExtResource("11_n4qyh")
+texture_disabled = ExtResource("13_3sthc")
+texture_focused = ExtResource("11_n4qyh")
+
+[node name="UnlockButton9" type="Control" parent="SlotBanner/Unlocks/UnlockRow2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 512.0
+offset_bottom = 384.0
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow2/UnlockButton9"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_n4qyh")
+texture_pressed = ExtResource("12_cavjx")
+texture_hover = ExtResource("11_n4qyh")
+texture_disabled = ExtResource("13_3sthc")
+texture_focused = ExtResource("11_n4qyh")
+
+[node name="UnlockButton10" type="Control" parent="SlotBanner/Unlocks/UnlockRow2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 512.0
+offset_top = 256.0
+offset_right = 640.0
+offset_bottom = 384.0
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow2/UnlockButton10"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+texture_normal = ExtResource("11_n4qyh")
+texture_pressed = ExtResource("12_cavjx")
+texture_hover = ExtResource("11_n4qyh")
+texture_disabled = ExtResource("13_3sthc")
+texture_focused = ExtResource("11_n4qyh")
 
 [connection signal="timeout" from="StaggerTimer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="UserInterface/SpinButton" to="." method="_on_spin_button_pressed"]
+[connection signal="pressed" from="SpinButtonGroup/SpinButton" to="." method="_on_spin_button_pressed"]
