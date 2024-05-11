@@ -9,6 +9,7 @@ var reel_index = 0
 
 @onready var stagger_timer = $StaggerTimer
 @onready var spin_button = $SpinButtonGroup/SpinButton
+@onready var spawn_point = $"../ResultArea/SpawnPoint"
 
 func _ready():
 	reelstrips = []
@@ -36,6 +37,9 @@ func _on_spin_button_pressed():
 func _on_spin_complete():
 	print("_on_spin_complete()->")
 	spin_button.disabled = false
+	
+	for i in range(3):
+		spawn_point.spawn(i)
 	
 func _on_timer_timeout():
 	var reelstrip = reelstrips[reel_index]

@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bdhpnmk100h4" path="res://game/assets/user-interface/buttons/Button_Blue_9Slides_Pressed.png" id="8_ule80"]
 [ext_resource type="Texture2D" uid="uid://k5stemyj7mvh" path="res://game/assets/user-interface/buttons/Button_Disable_9Slides.png" id="8_ydl3m"]
 [ext_resource type="Texture2D" uid="uid://cqvtxoictvhgy" path="res://game/assets/user-interface/buttons/Button_Blue_9Slides.png" id="9_kh4nu"]
-[ext_resource type="Texture2D" uid="uid://drmpqdwgxspgg" path="res://game/assets/user-interface/icons/Regular_08.png" id="11_n4qyh"]
-[ext_resource type="Texture2D" uid="uid://khmyww5tv874" path="res://game/assets/user-interface/icons/Pressed_08.png" id="12_cavjx"]
-[ext_resource type="Texture2D" uid="uid://b7waa3ehtpy8s" path="res://game/assets/user-interface/icons/Disable_08.png" id="13_3sthc"]
+[ext_resource type="Texture2D" uid="uid://dir0rbrxx5d5g" path="res://game/assets/user-interface/icons/Regular_10.png" id="11_l34lx"]
+[ext_resource type="Texture2D" uid="uid://bcr3d08p1nxr1" path="res://game/assets/user-interface/icons/Pressed_10.png" id="12_rosxm"]
+[ext_resource type="Texture2D" uid="uid://cbsc7c3d77ecx" path="res://game/assets/user-interface/icons/Disable_10.png" id="13_i04a8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jebk5"]
 texture = ExtResource("9_kh4nu")
@@ -64,6 +64,7 @@ patch_margin_right = 64
 patch_margin_bottom = 64
 
 [node name="BackFrame11" type="NinePatchRect" parent="SpinButtonGroup"]
+layout_mode = 0
 offset_left = 56.0
 offset_top = 64.0
 offset_right = 184.0
@@ -82,6 +83,7 @@ offset_top = 64.0
 offset_right = 184.0
 offset_bottom = 192.0
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_8vby3")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_jebk5")
@@ -295,215 +297,201 @@ pivot_offset = Vector2(320, 128)
 
 [node name="Unlocks" type="Node2D" parent="SlotBanner"]
 
-[node name="UnlockRow1" type="Control" parent="SlotBanner/Unlocks"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="UnlockButton1" type="Control" parent="SlotBanner/Unlocks/UnlockRow1"]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 128.0
-offset_right = 128.0
-offset_bottom = 256.0
-
-[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow1/UnlockButton1"]
-layout_mode = 2
-offset_left = 32.0
-offset_top = 40.0
-offset_right = 96.0
-offset_bottom = 104.0
-texture_normal = ExtResource("11_n4qyh")
-texture_pressed = ExtResource("12_cavjx")
-texture_hover = ExtResource("11_n4qyh")
-texture_disabled = ExtResource("13_3sthc")
-texture_focused = ExtResource("11_n4qyh")
-
-[node name="UnlockButton2" type="Control" parent="SlotBanner/Unlocks/UnlockRow1"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 128.0
-offset_top = 128.0
-offset_right = 256.0
-offset_bottom = 256.0
-
-[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow1/UnlockButton2"]
-layout_mode = 2
-offset_left = 32.0
-offset_top = 40.0
-offset_right = 96.0
-offset_bottom = 104.0
-texture_normal = ExtResource("11_n4qyh")
-texture_pressed = ExtResource("12_cavjx")
-texture_hover = ExtResource("11_n4qyh")
-texture_disabled = ExtResource("13_3sthc")
-texture_focused = ExtResource("11_n4qyh")
-
-[node name="UnlockButton3" type="Control" parent="SlotBanner/Unlocks/UnlockRow1"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 256.0
-offset_top = 128.0
-offset_right = 384.0
-offset_bottom = 256.0
-
-[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow1/UnlockButton3"]
-layout_mode = 2
-offset_left = 32.0
-offset_top = 40.0
-offset_right = 96.0
-offset_bottom = 104.0
-texture_normal = ExtResource("11_n4qyh")
-texture_pressed = ExtResource("12_cavjx")
-texture_hover = ExtResource("11_n4qyh")
-texture_disabled = ExtResource("13_3sthc")
-texture_focused = ExtResource("11_n4qyh")
-
-[node name="UnlockButton4" type="Control" parent="SlotBanner/Unlocks/UnlockRow1"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 384.0
-offset_top = 128.0
-offset_right = 512.0
-offset_bottom = 256.0
-
-[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow1/UnlockButton4"]
-layout_mode = 2
-offset_left = 32.0
-offset_top = 40.0
-offset_right = 96.0
-offset_bottom = 104.0
-texture_normal = ExtResource("11_n4qyh")
-texture_pressed = ExtResource("12_cavjx")
-texture_hover = ExtResource("11_n4qyh")
-texture_disabled = ExtResource("13_3sthc")
-texture_focused = ExtResource("11_n4qyh")
-
-[node name="UnlockButton5" type="Control" parent="SlotBanner/Unlocks/UnlockRow1"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 512.0
+[node name="UnlockGridContainer" type="GridContainer" parent="SlotBanner/Unlocks"]
 offset_top = 128.0
 offset_right = 640.0
-offset_bottom = 256.0
-
-[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow1/UnlockButton5"]
-layout_mode = 2
-offset_left = 32.0
-offset_top = 40.0
-offset_right = 96.0
-offset_bottom = 104.0
-texture_normal = ExtResource("11_n4qyh")
-texture_pressed = ExtResource("12_cavjx")
-texture_hover = ExtResource("11_n4qyh")
-texture_disabled = ExtResource("13_3sthc")
-texture_focused = ExtResource("11_n4qyh")
-
-[node name="UnlockRow2" type="Control" parent="SlotBanner/Unlocks"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="UnlockButton6" type="Control" parent="SlotBanner/Unlocks/UnlockRow2"]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 256.0
-offset_right = 128.0
 offset_bottom = 384.0
+columns = 5
 
-[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow2/UnlockButton6"]
+[node name="UnlockButton1" type="Control" parent="SlotBanner/Unlocks/UnlockGridContainer"]
+custom_minimum_size = Vector2(125, 128)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockGridContainer/UnlockButton1"]
 layout_mode = 2
 offset_left = 32.0
 offset_top = 40.0
 offset_right = 96.0
 offset_bottom = 104.0
-texture_normal = ExtResource("11_n4qyh")
-texture_pressed = ExtResource("12_cavjx")
-texture_hover = ExtResource("11_n4qyh")
-texture_disabled = ExtResource("13_3sthc")
-texture_focused = ExtResource("11_n4qyh")
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("11_l34lx")
+texture_pressed = ExtResource("12_rosxm")
+texture_hover = ExtResource("11_l34lx")
+texture_disabled = ExtResource("13_i04a8")
+texture_focused = ExtResource("11_l34lx")
+stretch_mode = 3
 
-[node name="UnlockButton7" type="Control" parent="SlotBanner/Unlocks/UnlockRow2"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 128.0
-offset_top = 256.0
-offset_right = 256.0
-offset_bottom = 384.0
+[node name="UnlockButton2" type="Control" parent="SlotBanner/Unlocks/UnlockGridContainer"]
+custom_minimum_size = Vector2(125, 128)
+layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow2/UnlockButton7"]
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockGridContainer/UnlockButton2"]
 layout_mode = 2
 offset_left = 32.0
 offset_top = 40.0
 offset_right = 96.0
 offset_bottom = 104.0
-texture_normal = ExtResource("11_n4qyh")
-texture_pressed = ExtResource("12_cavjx")
-texture_hover = ExtResource("11_n4qyh")
-texture_disabled = ExtResource("13_3sthc")
-texture_focused = ExtResource("11_n4qyh")
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("11_l34lx")
+texture_pressed = ExtResource("12_rosxm")
+texture_hover = ExtResource("11_l34lx")
+texture_disabled = ExtResource("13_i04a8")
+texture_focused = ExtResource("11_l34lx")
+stretch_mode = 3
 
-[node name="UnlockButton8" type="Control" parent="SlotBanner/Unlocks/UnlockRow2"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 256.0
-offset_top = 256.0
-offset_right = 384.0
-offset_bottom = 384.0
+[node name="UnlockButton3" type="Control" parent="SlotBanner/Unlocks/UnlockGridContainer"]
+custom_minimum_size = Vector2(125, 128)
+layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow2/UnlockButton8"]
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockGridContainer/UnlockButton3"]
 layout_mode = 2
 offset_left = 32.0
 offset_top = 40.0
 offset_right = 96.0
 offset_bottom = 104.0
-texture_normal = ExtResource("11_n4qyh")
-texture_pressed = ExtResource("12_cavjx")
-texture_hover = ExtResource("11_n4qyh")
-texture_disabled = ExtResource("13_3sthc")
-texture_focused = ExtResource("11_n4qyh")
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("11_l34lx")
+texture_pressed = ExtResource("12_rosxm")
+texture_hover = ExtResource("11_l34lx")
+texture_disabled = ExtResource("13_i04a8")
+texture_focused = ExtResource("11_l34lx")
+stretch_mode = 3
 
-[node name="UnlockButton9" type="Control" parent="SlotBanner/Unlocks/UnlockRow2"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 384.0
-offset_top = 256.0
-offset_right = 512.0
-offset_bottom = 384.0
+[node name="UnlockButton4" type="Control" parent="SlotBanner/Unlocks/UnlockGridContainer"]
+custom_minimum_size = Vector2(125, 128)
+layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow2/UnlockButton9"]
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockGridContainer/UnlockButton4"]
 layout_mode = 2
 offset_left = 32.0
 offset_top = 40.0
 offset_right = 96.0
 offset_bottom = 104.0
-texture_normal = ExtResource("11_n4qyh")
-texture_pressed = ExtResource("12_cavjx")
-texture_hover = ExtResource("11_n4qyh")
-texture_disabled = ExtResource("13_3sthc")
-texture_focused = ExtResource("11_n4qyh")
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("11_l34lx")
+texture_pressed = ExtResource("12_rosxm")
+texture_hover = ExtResource("11_l34lx")
+texture_disabled = ExtResource("13_i04a8")
+texture_focused = ExtResource("11_l34lx")
+stretch_mode = 3
 
-[node name="UnlockButton10" type="Control" parent="SlotBanner/Unlocks/UnlockRow2"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 512.0
-offset_top = 256.0
-offset_right = 640.0
-offset_bottom = 384.0
+[node name="UnlockButton5" type="Control" parent="SlotBanner/Unlocks/UnlockGridContainer"]
+custom_minimum_size = Vector2(125, 128)
+layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockRow2/UnlockButton10"]
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockGridContainer/UnlockButton5"]
 layout_mode = 2
 offset_left = 32.0
 offset_top = 40.0
 offset_right = 96.0
 offset_bottom = 104.0
-texture_normal = ExtResource("11_n4qyh")
-texture_pressed = ExtResource("12_cavjx")
-texture_hover = ExtResource("11_n4qyh")
-texture_disabled = ExtResource("13_3sthc")
-texture_focused = ExtResource("11_n4qyh")
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("11_l34lx")
+texture_pressed = ExtResource("12_rosxm")
+texture_hover = ExtResource("11_l34lx")
+texture_disabled = ExtResource("13_i04a8")
+texture_focused = ExtResource("11_l34lx")
+stretch_mode = 3
+
+[node name="UnlockButton6" type="Control" parent="SlotBanner/Unlocks/UnlockGridContainer"]
+custom_minimum_size = Vector2(125, 128)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockGridContainer/UnlockButton6"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("11_l34lx")
+texture_pressed = ExtResource("12_rosxm")
+texture_hover = ExtResource("11_l34lx")
+texture_disabled = ExtResource("13_i04a8")
+texture_focused = ExtResource("11_l34lx")
+stretch_mode = 3
+
+[node name="UnlockButton7" type="Control" parent="SlotBanner/Unlocks/UnlockGridContainer"]
+custom_minimum_size = Vector2(125, 128)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockGridContainer/UnlockButton7"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("11_l34lx")
+texture_pressed = ExtResource("12_rosxm")
+texture_hover = ExtResource("11_l34lx")
+texture_disabled = ExtResource("13_i04a8")
+texture_focused = ExtResource("11_l34lx")
+stretch_mode = 3
+
+[node name="UnlockButton8" type="Control" parent="SlotBanner/Unlocks/UnlockGridContainer"]
+custom_minimum_size = Vector2(125, 128)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockGridContainer/UnlockButton8"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("11_l34lx")
+texture_pressed = ExtResource("12_rosxm")
+texture_hover = ExtResource("11_l34lx")
+texture_disabled = ExtResource("13_i04a8")
+texture_focused = ExtResource("11_l34lx")
+stretch_mode = 3
+
+[node name="UnlockButton9" type="Control" parent="SlotBanner/Unlocks/UnlockGridContainer"]
+custom_minimum_size = Vector2(125, 128)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockGridContainer/UnlockButton9"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("11_l34lx")
+texture_pressed = ExtResource("12_rosxm")
+texture_hover = ExtResource("11_l34lx")
+texture_disabled = ExtResource("13_i04a8")
+texture_focused = ExtResource("11_l34lx")
+stretch_mode = 3
+
+[node name="UnlockButton10" type="Control" parent="SlotBanner/Unlocks/UnlockGridContainer"]
+custom_minimum_size = Vector2(125, 128)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="SlotBanner/Unlocks/UnlockGridContainer/UnlockButton10"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 104.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("11_l34lx")
+texture_pressed = ExtResource("12_rosxm")
+texture_hover = ExtResource("11_l34lx")
+texture_disabled = ExtResource("13_i04a8")
+texture_focused = ExtResource("11_l34lx")
+stretch_mode = 3
 
 [connection signal="timeout" from="StaggerTimer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="SpinButtonGroup/SpinButton" to="." method="_on_spin_button_pressed"]

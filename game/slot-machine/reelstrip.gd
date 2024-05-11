@@ -81,6 +81,7 @@ func start_spin():
 	result_symbol_nodes = []
 	_has_processed_snap = false
 	_has_process_start = false
+	_reelstrip_model.shuffle()
 	current_spin_stage = spin_stages.start
 
 func stop_spin():

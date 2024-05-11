@@ -1,13 +1,33 @@
-[gd_scene load_steps=14 format=3 uid="uid://b30xvq7r8txbk"]
+[gd_scene load_steps=50 format=3 uid="uid://b30xvq7r8txbk"]
 
 [ext_resource type="PackedScene" uid="uid://bjqmdgruf7pkf" path="res://game/slot-machine/slot_machine.tscn" id="1_2svhr"]
 [ext_resource type="Script" path="res://game/game-root.gd" id="1_7y8tc"]
-[ext_resource type="Texture2D" uid="uid://byvrjb6x5fa7j" path="res://game/assets/user-interface/banner/Banner_Connection_Down.png" id="2_1ptku"]
 [ext_resource type="Texture2D" uid="uid://beyqjk1pyobyl" path="res://game/assets/deco/18.png" id="2_5tyxo"]
 [ext_resource type="Texture2D" uid="uid://c5j6pjfxfsw6r" path="res://game/assets/terrain/Tilemap_Flat.png" id="5_1c6v8"]
 [ext_resource type="Texture2D" uid="uid://btxiogeffvsml" path="res://game/assets/terrain/Tilemap_Elevation.png" id="5_i30ha"]
 [ext_resource type="Texture2D" uid="uid://ct6mwiixdm5ak" path="res://game/assets/terrain/Bridge_All.png" id="6_p1dtw"]
+[ext_resource type="Script" path="res://game/spawn-point.gd" id="7_4mm4u"]
 [ext_resource type="Texture2D" uid="uid://rc8e0md0tdsu" path="res://game/assets/terrain/Shadows.png" id="7_qs2q1"]
+[ext_resource type="Texture2D" uid="uid://c6affpyrw1nn5" path="res://game/assets/user-interface/banner/Banner_Vertical.png" id="8_k1tef"]
+[ext_resource type="Texture2D" uid="uid://doawcrthsn3ka" path="res://game/assets/user-interface/banner/Banner_Connection_Right.png" id="8_sb2o1"]
+[ext_resource type="Texture2D" uid="uid://dcu1boj1kfkx3" path="res://game/assets/user-interface/banner/Carved_9Slides.png" id="10_13ofn"]
+[ext_resource type="FontFile" uid="uid://btiou0g2n8itb" path="res://game/assets/fonts/NotoSerifDisplay-Black.ttf" id="11_sx1el"]
+[ext_resource type="Texture2D" uid="uid://bua257gvhrnlb" path="res://game/assets/user-interface/buttons/Button_Red_9Slides.png" id="11_vh1bk"]
+[ext_resource type="Texture2D" uid="uid://drmpqdwgxspgg" path="res://game/assets/user-interface/icons/Regular_08.png" id="12_1ndp4"]
+[ext_resource type="Texture2D" uid="uid://cqvtxoictvhgy" path="res://game/assets/user-interface/buttons/Button_Blue_9Slides.png" id="12_tb64a"]
+[ext_resource type="Texture2D" uid="uid://khmyww5tv874" path="res://game/assets/user-interface/icons/Pressed_08.png" id="13_3w6pe"]
+[ext_resource type="Texture2D" uid="uid://yeuasntc6u4o" path="res://game/assets/user-interface/buttons/Button_Hover_9Slides.png" id="13_li27q"]
+[ext_resource type="Texture2D" uid="uid://c7qpdhs1u4knc" path="res://game/assets/user-interface/buttons/Button_Red_9Slides_Pressed.png" id="13_ypfug"]
+[ext_resource type="Texture2D" uid="uid://bdhpnmk100h4" path="res://game/assets/user-interface/buttons/Button_Blue_9Slides_Pressed.png" id="14_eo3ga"]
+[ext_resource type="Texture2D" uid="uid://b7waa3ehtpy8s" path="res://game/assets/user-interface/icons/Disable_08.png" id="15_q7muv"]
+[ext_resource type="Texture2D" uid="uid://k5stemyj7mvh" path="res://game/assets/user-interface/buttons/Button_Disable_9Slides.png" id="15_yorui"]
+[ext_resource type="Texture2D" uid="uid://c4xwmqmehdgkt" path="res://game/assets/user-interface/ribbon/Ribbon_Red_3Slides.png" id="18_gjb57"]
+[ext_resource type="Texture2D" uid="uid://bn80axl35s84y" path="res://game/assets/user-interface/buttons/Button_Red.png" id="22_jo87t"]
+[ext_resource type="Script" path="res://game/menu.gd" id="22_l21sb"]
+[ext_resource type="Script" path="res://game/main-menu.gd" id="22_qjp1j"]
+[ext_resource type="Texture2D" uid="uid://da0ptia3uystn" path="res://game/assets/user-interface/buttons/Button_Red_Pressed.png" id="23_04l3c"]
+[ext_resource type="Texture2D" uid="uid://bm42tk24vnjg" path="res://game/assets/user-interface/icons/Regular_01.png" id="24_66ac0"]
+[ext_resource type="Texture2D" uid="uid://b2vs5qyck53yp" path="res://game/assets/user-interface/banner/Carved_9Slides_black.png" id="26_84fin"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4642t"]
 texture = ExtResource("5_1c6v8")
@@ -115,93 +135,567 @@ sources/2 = SubResource("TileSetAtlasSource_fvqf4")
 sources/3 = SubResource("TileSetAtlasSource_u2dco")
 sources/4 = SubResource("TileSetAtlasSource_thnyo")
 
+[sub_resource type="Curve2D" id="Curve2D_gec4f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -26, 12, -38.8063, 6.8559, 38.8063, -6.8559, 74, -32, -10.1978, 0.265762, 10.1978, -0.265762, 258, -36, -30.7244, 2.11893, 30.7244, -2.11893, 482, -34, 0, 0, 0, 0, 600, -22)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_p7tma"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -26, 12, -38.8063, 10.3559, 38.8063, -10.3559, 76, -10, -10.1978, 0.265762, 10.1978, -0.265762, 202, -42, -30.7244, 2.11893, 30.7244, -2.11893, 522, -42, 0, 0, 0, 0, 600, -22)
+}
+point_count = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhb2f"]
+texture = ExtResource("12_tb64a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uoo2u"]
+texture = ExtResource("13_li27q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y7mdu"]
+texture = ExtResource("14_eo3ga")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5c377"]
+texture = ExtResource("15_yorui")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l6n2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gm203"]
+texture = ExtResource("11_vh1bk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4pbh"]
+texture = ExtResource("13_li27q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_whro6"]
+texture = ExtResource("13_ypfug")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ipt7i"]
+texture = ExtResource("15_yorui")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_loyh1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5cj4y"]
+texture = ExtResource("13_li27q")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncwm0"]
+texture = ExtResource("13_li27q")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3iq3"]
+texture = ExtResource("15_yorui")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j18oy"]
+texture = ExtResource("15_yorui")
+
 [node name="Game" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_7y8tc")
 
 [node name="Background" type="Node2D" parent="."]
-position = Vector2(0, 32)
+position = Vector2(0, 51)
 
 [node name="ColorRectBorder" type="ColorRect" parent="Background"]
-offset_left = -16.0
-offset_top = 18.0
-offset_right = 1988.0
-offset_bottom = 418.0
+offset_left = -4.0
+offset_top = 16.0
+offset_right = 3844.0
+offset_bottom = 524.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
-offset_left = -16.0
 offset_top = 20.0
-offset_right = 1984.0
-offset_bottom = 420.0
-color = Color(0.843137, 0.819608, 0.654902, 1)
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Background"]
-visible = false
-offset_left = -80.0
-offset_top = -32.0
-offset_right = 2120.0
-offset_bottom = 568.0
-texture = ExtResource("2_1ptku")
-draw_center = false
-patch_margin_left = 64
-patch_margin_top = 64
-patch_margin_right = 64
-patch_margin_bottom = 64
-
-[node name="SlotMachine" parent="." instance=ExtResource("1_2svhr")]
-position = Vector2(0, 32)
-scale = Vector2(0.5, 0.5)
+offset_right = 3840.0
+offset_bottom = 520.0
+color = Color(0.278431, 0.670588, 0.662745, 1)
 
 [node name="TileMapGroup" type="Node2D" parent="."]
 position = Vector2(61, 0)
-scale = Vector2(0.5, 0.5)
-
-[node name="Shadows" type="TileMap" parent="TileMapGroup"]
-tile_set = SubResource("TileSet_k8owl")
-rendering_quadrant_size = 64
-format = 2
-layer_0/tile_data = PackedInt32Array(131095, 131076, 1, 196631, 131076, 1, 262167, 131076, 1, 327703, 131076, 1, 393238, 65540, 2, 393237, 65540, 2, 393236, 65540, 2, 393235, 65540, 2, 393234, 65540, 2, 327697, 4, 1, 262161, 65540, 2, 196624, 4, 1, 131088, 4, 1, 65558, 65540, 0, 327704, 65540, 2, 393241, 65540, 2, 393242, 65540, 2, 393243, 65540, 2, 131100, 131076, 1, 262172, 131076, 1, 196636, 131076, 1, 327708, 131076, 1, 327707, 65540, 1, 327706, 65540, 1, 327705, 65540, 1, 262168, 65540, 1, 327702, 65540, 1, 327701, 65540, 1, 327700, 65540, 1, 327699, 65540, 1, 327698, 65540, 1, 262162, 65540, 1, 262166, 65540, 1, 196630, 65540, 1, 131094, 65540, 1, 131096, 65540, 1, 196632, 65540, 1, 262171, 65540, 1, 196635, 65540, 1, 131099, 65540, 1, 196625, 65540, 1, 196626, 65540, 1, 196627, 65540, 1, 131089, 65540, 1)
-
-[node name="Shadows2" type="TileMap" parent="TileMapGroup"]
-tile_set = SubResource("TileSet_k8owl")
-rendering_quadrant_size = 64
-format = 2
-layer_0/tile_data = PackedInt32Array(262167, 4, 1, 196631, 4, 1, 131095, 4, 1, 262161, 4, 1, 327704, 4, 1, 65560, 65540, 0)
 
 [node name="Sand" type="TileMap" parent="TileMapGroup"]
 tile_set = SubResource("TileSet_k8owl")
 rendering_quadrant_size = 64
 format = 2
-layer_0/tile_data = PackedInt32Array(131098, 65538, 1, 131096, 327681, 0, 196632, 327681, 1, 262168, 327681, 2, 327705, 327681, 2, 327707, 458753, 2, 327706, 393217, 2, 262169, 393217, 1, 131094, 458753, 0, 196630, 458753, 1, 262166, 458753, 1, 327702, 458753, 2, 327701, 393217, 2, 327700, 393217, 2, 327699, 393217, 2, 327698, 327681, 2, 262162, 327681, 1, 262163, 393217, 1)
+layer_0/tile_data = PackedInt32Array(196626, 458753, 0, 196629, 327681, 0, 262162, 458753, 1, 327698, 458753, 1, 393234, 458753, 2, 393233, 393217, 1, 458769, 458753, 2, 458768, 393217, 2, 458767, 393217, 2, 458766, 393217, 2, 458765, 393217, 2, 458764, 327681, 2, 393228, 327681, 1, 262165, 327681, 1, 327701, 327681, 1, 393237, 327681, 2, 458775, 393217, 2, 458776, 458753, 2, 393240, 393217, 1, 393241, 393217, 2, 393242, 393217, 2, 393243, 458753, 2, 327707, 458753, 1, 262171, 458753, 1, 196635, 458753, 1, 131099, 458753, 0, 327692, 327681, 1, 262156, 327681, 0)
 
 [node name="BottomRocks" type="TileMap" parent="TileMapGroup"]
 tile_set = SubResource("TileSet_k8owl")
 rendering_quadrant_size = 64
 format = 2
-layer_0/tile_data = PackedInt32Array(65561, 2, 0, 131097, 2, 2, 65562, 65538, 0, 131098, 65538, 1, 196634, 2, 2, 262170, 2, 3, 65563, 131074, 0, 131099, 131074, 1, 196635, 131074, 2, 262171, 131074, 3, 196633, 2, 3, 131093, 131074, 1, 196629, 65538, 2, 262165, 131074, 3, 65557, 131074, 0, 65555, 65538, 0, 131091, 65538, 1, 65556, 65538, 0, 131092, 65538, 1, 65554, 65538, 0, 131090, 65538, 1, 196628, 2, 2, 262164, 2, 3, 196627, 65538, 3, 196626, 65538, 3, 196625, 2, 3, 131089, 2, 2, 65553, 2, 0)
+layer_0/tile_data = PackedInt32Array(393229, 2, 3, 393230, 65538, 3, 393231, 131074, 3, 393232, 131074, 3, 458774, 196610, 3, 196630, 2, 1, 131085, 2, 0, 131088, 65538, 0, 131087, 65538, 0, 131086, 65538, 0, 196621, 2, 1, 262157, 2, 1, 327693, 2, 1, 196622, 65538, 1, 196623, 65538, 1, 196624, 65538, 1, 196625, 131074, 1, 262161, 131074, 2, 262160, 65538, 1, 262159, 65538, 1, 262158, 65538, 1, 327694, 65538, 1, 327695, 65538, 1, 327696, 131074, 2, 393238, 196610, 2, 327702, 2, 1, 262166, 2, 1, 131094, 2, 0, 65559, 2, 0, 65562, 131074, 0, 131098, 131074, 1, 196634, 131074, 1, 262170, 131074, 2, 327706, 131074, 3, 327705, 65538, 3, 327704, 65538, 3, 327703, 131074, 2, 262169, 65538, 2, 262168, 65538, 2, 262167, 65538, 2, 196631, 65538, 2, 196632, 65538, 2, 196633, 65538, 2, 131095, 65538, 2, 131096, 65538, 2, 131097, 65538, 2, 65560, 65538, 0, 65561, 65538, 0, 327697, 131074, 3, 393239, 131074, 3, 131089, 131074, 0)
 
 [node name="Grass" type="TileMap" parent="TileMapGroup"]
 tile_set = SubResource("TileSet_k8owl")
 rendering_quadrant_size = 64
 format = 2
-layer_0/tile_data = PackedInt32Array(65563, 131073, 0, 65561, 1, 0, 65562, 65537, 0, 131097, 1, 2, 131098, 65537, 1, 196634, 1, 2, 196635, 131073, 2, 131099, 131073, 1, 65553, 1, 0, 131089, 1, 2, 65554, 65537, 0, 65555, 65537, 0, 65556, 65537, 0, 131090, 65537, 2, 131091, 65537, 2, 196628, 1, 2, 131092, 65537, 1, 65557, 131073, 0, 131093, 131073, 1, 196629, 131073, 2)
+layer_0/tile_data = PackedInt32Array(131085, 1, 0, 131086, 65537, 0, 131087, 65537, 0, 131088, 65537, 0, 196624, 65537, 1, 196625, 131073, 1, 131089, 131073, 0, 196623, 65537, 1, 196622, 65537, 1, 196621, 1, 1, 262157, 1, 1, 262158, 65537, 1, 262159, 65537, 1, 262160, 65537, 1, 262161, 131073, 2, 327696, 131073, 2, 327695, 65537, 2, 327694, 65537, 2, 327693, 1, 2, 131095, 65537, 1, 196631, 65537, 1, 196632, 65537, 1, 196633, 65537, 1, 131097, 65537, 1, 131096, 65537, 1, 65560, 65537, 0, 65559, 1, 0, 65561, 65537, 0, 65562, 131073, 0, 131098, 131073, 1, 196634, 131073, 1, 262170, 131073, 2, 262169, 65537, 2, 262168, 65537, 2, 262167, 65537, 1, 131094, 1, 0, 196630, 1, 1, 262166, 1, 1, 393238, 196609, 2, 327703, 131073, 2, 327702, 1, 1)
 
 [node name="TopRocks" type="TileMap" parent="TileMapGroup"]
 tile_set = SubResource("TileSet_k8owl")
 rendering_quadrant_size = 64
 format = 2
-layer_0/tile_data = PackedInt32Array(27, 196610, 4, 65563, 196610, 5, 20, 131074, 4, 65556, 131074, 5, 19, 2, 4, 65555, 2, 5)
+layer_0/tile_data = PackedInt32Array(131088, 131074, 5, 131087, 65538, 5, 131086, 2, 5, 65562, 196610, 5, 65560, 131074, 5, 65551, 65538, 4, 65552, 131074, 4, 26, 196610, 4, 65550, 2, 4, 23, 2, 4, 65559, 2, 5, 24, 131074, 4)
 
-[node name="Overlays" type="TileMap" parent="TileMapGroup"]
+[node name="TopGrass" type="TileMap" parent="TileMapGroup"]
 tile_set = SubResource("TileSet_k8owl")
 rendering_quadrant_size = 64
 format = 2
-layer_0/tile_data = PackedInt32Array(27, 196609, 3, 65563, 262145, 0, 262171, 262145, 0, 262170, 262145, 0, 196633, 262145, 0, 131097, 131075, 0, 131096, 65539, 0, 131095, 65539, 0, 131094, 65539, 0, 131093, 3, 0, 65556, 262145, 0, 65555, 262145, 0, 196627, 262145, 0, 196626, 262145, 0, 196625, 262145, 0, 262164, 262145, 0, 262165, 262145, 0)
+layer_0/tile_data = PackedInt32Array(26, 196609, 3, 65550, 1, 3, 65551, 65537, 3, 65552, 131073, 3, 24, 131073, 3, 23, 1, 3)
 
-[node name="Dummy" type="Node2D" parent="."]
-position = Vector2(909, 96)
-scale = Vector2(0.5, 0.5)
+[node name="Bridge" type="TileMap" parent="TileMapGroup"]
+tile_set = SubResource("TileSet_k8owl")
+rendering_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(196626, 65539, 0, 196627, 65539, 0, 196628, 65539, 0, 196629, 65539, 0, 196625, 3, 0, 196630, 131075, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Dummy"]
+[node name="ResultArea" type="Node2D" parent="."]
+position = Vector2(1024, 256)
+
+[node name="Dummy" type="Node2D" parent="ResultArea"]
+position = Vector2(624, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ResultArea/Dummy"]
 position = Vector2(0, -96)
 texture = ExtResource("2_5tyxo")
+
+[node name="SpawnPoint" type="Node2D" parent="ResultArea"]
+script = ExtResource("7_4mm4u")
+
+[node name="Path1" type="Path2D" parent="ResultArea/SpawnPoint"]
+position = Vector2(0, -20)
+curve = SubResource("Curve2D_gec4f")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ResultArea/SpawnPoint/Path1"]
+position = Vector2(-26, 12)
+rotation = 0.0767719
+rotates = false
+loop = false
+
+[node name="Timer" type="Timer" parent="ResultArea/SpawnPoint/Path1"]
+
+[node name="Path2" type="Path2D" parent="ResultArea/SpawnPoint"]
+position = Vector2(-46, -34)
+curve = SubResource("Curve2D_p7tma")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ResultArea/SpawnPoint/Path2"]
+position = Vector2(-26, 12)
+rotation = 0.0767719
+rotates = false
+loop = false
+
+[node name="Timer" type="Timer" parent="ResultArea/SpawnPoint/Path2"]
+
+[node name="Path3" type="Path2D" parent="ResultArea/SpawnPoint"]
+position = Vector2(-46, -14)
+curve = SubResource("Curve2D_p7tma")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ResultArea/SpawnPoint/Path3"]
+position = Vector2(-26, 12)
+rotation = 0.0767719
+rotates = false
+loop = false
+
+[node name="Timer" type="Timer" parent="ResultArea/SpawnPoint/Path3"]
+
+[node name="SlotMachine" parent="." instance=ExtResource("1_2svhr")]
+position = Vector2(0, 32)
+
+[node name="PlayerStats" type="Node2D" parent="."]
+position = Vector2(1808, -32)
+
+[node name="SpinButtonGroup" type="Control" parent="PlayerStats"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = 144.0
+offset_right = -48.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpinButtonBanner" type="NinePatchRect" parent="PlayerStats/SpinButtonGroup"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("8_sb2o1")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="BackFrame11" type="NinePatchRect" parent="PlayerStats/SpinButtonGroup"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 64.0
+offset_right = 184.0
+offset_bottom = 192.0
+texture = ExtResource("10_13ofn")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="SpinButton" type="Button" parent="PlayerStats/SpinButtonGroup"]
+layout_mode = 1
+offset_left = 56.0
+offset_top = 64.0
+offset_right = 184.0
+offset_bottom = 192.0
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_uhb2f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uoo2u")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y7mdu")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_5c377")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3l6n2")
+text = "SPIN"
+icon_alignment = 1
+
+[node name="UpgradeSymbols" type="Node2D" parent="."]
+position = Vector2(1952, 16)
+
+[node name="Banner" type="NinePatchRect" parent="UpgradeSymbols"]
+offset_right = 760.0
+offset_bottom = 495.0
+texture = ExtResource("8_k1tef")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="GridContainer" type="GridContainer" parent="UpgradeSymbols"]
+offset_left = 112.0
+offset_top = 112.0
+offset_right = 696.0
+offset_bottom = 496.0
+columns = 3
+
+[node name="ButtonGroup" type="Control" parent="UpgradeSymbols/GridContainer"]
+custom_minimum_size = Vector2(192, 160)
+layout_mode = 2
+
+[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("10_13ofn")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup"]
+visible = false
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 128.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("15_q7muv")
+icon_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="UpgradeSymbols/GridContainer/ButtonGroup"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+texture_normal = ExtResource("12_1ndp4")
+texture_pressed = ExtResource("13_3w6pe")
+texture_hover = ExtResource("12_1ndp4")
+texture_disabled = ExtResource("15_q7muv")
+texture_focused = ExtResource("12_1ndp4")
+stretch_mode = 3
+
+[node name="ButtonGroup2" type="Control" parent="UpgradeSymbols/GridContainer"]
+custom_minimum_size = Vector2(192, 160)
+layout_mode = 2
+
+[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup2"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("10_13ofn")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup2"]
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 128.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_gm203")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s4pbh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_whro6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ipt7i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_loyh1")
+icon = ExtResource("15_q7muv")
+icon_alignment = 1
+
+[node name="ButtonGroup3" type="Control" parent="UpgradeSymbols/GridContainer"]
+custom_minimum_size = Vector2(192, 160)
+layout_mode = 2
+
+[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup3"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("10_13ofn")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup3"]
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 128.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_gm203")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s4pbh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_whro6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ipt7i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_loyh1")
+icon = ExtResource("15_q7muv")
+icon_alignment = 1
+
+[node name="ButtonGroup4" type="Control" parent="UpgradeSymbols/GridContainer"]
+custom_minimum_size = Vector2(192, 160)
+layout_mode = 2
+
+[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup4"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("10_13ofn")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup4"]
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 128.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_gm203")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s4pbh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_whro6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ipt7i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_loyh1")
+icon = ExtResource("15_q7muv")
+icon_alignment = 1
+
+[node name="ButtonGroup5" type="Control" parent="UpgradeSymbols/GridContainer"]
+custom_minimum_size = Vector2(192, 160)
+layout_mode = 2
+
+[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup5"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("10_13ofn")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup5"]
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 128.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_gm203")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s4pbh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_whro6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ipt7i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_loyh1")
+icon = ExtResource("15_q7muv")
+icon_alignment = 1
+
+[node name="ButtonGroup6" type="Control" parent="UpgradeSymbols/GridContainer"]
+custom_minimum_size = Vector2(192, 160)
+layout_mode = 2
+
+[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup6"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("10_13ofn")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup6"]
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 128.0
+tooltip_text = "Tooltip description here
+Add what the upgrade does"
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_gm203")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s4pbh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_whro6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ipt7i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_loyh1")
+icon = ExtResource("15_q7muv")
+icon_alignment = 1
+
+[node name="Ribbon" type="NinePatchRect" parent="UpgradeSymbols"]
+offset_right = 768.0
+offset_bottom = 80.0
+texture = ExtResource("18_gjb57")
+region_rect = Rect2(0, 0, 192, 64)
+patch_margin_left = 64
+patch_margin_right = 64
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpgradeSymbols/Ribbon"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 8.0
+offset_right = 880.0
+offset_bottom = 53.0
+theme_override_fonts/normal_font = ExtResource("11_sx1el")
+theme_override_fonts/bold_font = ExtResource("11_sx1el")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+text = "Symbol Upgrades"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MainMenu" type="Node2D" parent="."]
+script = ExtResource("22_qjp1j")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MainMenu"]
+modulate = Color(1, 1, 1, 0.627451)
+offset_left = -216.0
+offset_top = 40.0
+offset_right = 3984.0
+offset_bottom = 500.0
+texture = ExtResource("26_84fin")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 2
+patch_margin_top = 64
+patch_margin_right = 2
+patch_margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+offset_left = 1664.0
+offset_top = 240.0
+offset_right = 2176.0
+offset_bottom = 496.0
+
+[node name="PlayButton" type="Button" parent="MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_colors/font_pressed_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_colors/font_hover_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_colors/font_focus_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.705882)
+theme_override_colors/font_outline_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_5cj4y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ncwm0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x3iq3")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_j18oy")
+text = "PLAY"
+icon_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_colors/font_pressed_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_colors/font_hover_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_colors/font_focus_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.705882)
+theme_override_colors/font_outline_color = Color(0.278431, 0.670588, 0.662745, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_5cj4y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ncwm0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x3iq3")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_j18oy")
+text = "SETTINGS"
+icon_alignment = 1
+
+[node name="TopBar" type="Node2D" parent="."]
+script = ExtResource("22_l21sb")
+
+[node name="CloseButton" type="TextureButton" parent="TopBar"]
+offset_left = 3776.0
+offset_top = 48.0
+offset_right = 3840.0
+offset_bottom = 112.0
+texture_normal = ExtResource("22_jo87t")
+texture_pressed = ExtResource("23_04l3c")
+texture_disabled = ExtResource("23_04l3c")
+
+[node name="TextureRect" type="TextureRect" parent="TopBar/CloseButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("24_66ac0")
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/SettingsButton" to="MainMenu" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="TopBar/CloseButton" to="TopBar" method="_on_close_button_pressed"]
