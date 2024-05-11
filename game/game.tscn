@@ -1,12 +1,12 @@
-[gd_scene load_steps=50 format=3 uid="uid://b30xvq7r8txbk"]
+[gd_scene load_steps=49 format=3 uid="uid://b30xvq7r8txbk"]
 
 [ext_resource type="PackedScene" uid="uid://bjqmdgruf7pkf" path="res://game/slot-machine/slot_machine.tscn" id="1_2svhr"]
-[ext_resource type="Script" path="res://game/game-root.gd" id="1_7y8tc"]
+[ext_resource type="Script" path="res://game/game-manager.gd" id="1_7y8tc"]
 [ext_resource type="Texture2D" uid="uid://beyqjk1pyobyl" path="res://game/assets/deco/18.png" id="2_5tyxo"]
+[ext_resource type="Script" path="res://game/result/spawn-config.gd" id="2_vl5ts"]
 [ext_resource type="Texture2D" uid="uid://c5j6pjfxfsw6r" path="res://game/assets/terrain/Tilemap_Flat.png" id="5_1c6v8"]
 [ext_resource type="Texture2D" uid="uid://btxiogeffvsml" path="res://game/assets/terrain/Tilemap_Elevation.png" id="5_i30ha"]
 [ext_resource type="Texture2D" uid="uid://ct6mwiixdm5ak" path="res://game/assets/terrain/Bridge_All.png" id="6_p1dtw"]
-[ext_resource type="Script" path="res://game/spawn-point.gd" id="7_4mm4u"]
 [ext_resource type="Texture2D" uid="uid://rc8e0md0tdsu" path="res://game/assets/terrain/Shadows.png" id="7_qs2q1"]
 [ext_resource type="Texture2D" uid="uid://c6affpyrw1nn5" path="res://game/assets/user-interface/banner/Banner_Vertical.png" id="8_k1tef"]
 [ext_resource type="Texture2D" uid="uid://doawcrthsn3ka" path="res://game/assets/user-interface/banner/Banner_Connection_Right.png" id="8_sb2o1"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://da0ptia3uystn" path="res://game/assets/user-interface/buttons/Button_Red_Pressed.png" id="23_04l3c"]
 [ext_resource type="Texture2D" uid="uid://bm42tk24vnjg" path="res://game/assets/user-interface/icons/Regular_01.png" id="24_66ac0"]
 [ext_resource type="Texture2D" uid="uid://b2vs5qyck53yp" path="res://game/assets/user-interface/banner/Carved_9Slides_black.png" id="26_84fin"]
+[ext_resource type="Script" path="res://game/slot-machine/slot-config.gd" id="29_4hp4o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4642t"]
 texture = ExtResource("5_1c6v8")
@@ -135,18 +136,6 @@ sources/2 = SubResource("TileSetAtlasSource_fvqf4")
 sources/3 = SubResource("TileSetAtlasSource_u2dco")
 sources/4 = SubResource("TileSetAtlasSource_thnyo")
 
-[sub_resource type="Curve2D" id="Curve2D_gec4f"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -26, 12, -38.8063, 6.8559, 38.8063, -6.8559, 74, -32, -10.1978, 0.265762, 10.1978, -0.265762, 258, -36, -30.7244, 2.11893, 30.7244, -2.11893, 482, -34, 0, 0, 0, 0, 600, -22)
-}
-point_count = 5
-
-[sub_resource type="Curve2D" id="Curve2D_p7tma"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -26, 12, -38.8063, 10.3559, 38.8063, -10.3559, 76, -10, -10.1978, 0.265762, 10.1978, -0.265762, 202, -42, -30.7244, 2.11893, 30.7244, -2.11893, 522, -42, 0, 0, 0, 0, 600, -22)
-}
-point_count = 5
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhb2f"]
 texture = ExtResource("12_tb64a")
 
@@ -208,6 +197,14 @@ texture = ExtResource("15_yorui")
 [node name="Game" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_7y8tc")
+
+[node name="SlotConfig" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("29_4hp4o")
+
+[node name="SpawnConfig" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_vl5ts")
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(0, 51)
@@ -274,44 +271,8 @@ position = Vector2(624, 0)
 position = Vector2(0, -96)
 texture = ExtResource("2_5tyxo")
 
-[node name="SpawnPoint" type="Node2D" parent="ResultArea"]
-script = ExtResource("7_4mm4u")
-
-[node name="Path1" type="Path2D" parent="ResultArea/SpawnPoint"]
-position = Vector2(0, -20)
-curve = SubResource("Curve2D_gec4f")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="ResultArea/SpawnPoint/Path1"]
-position = Vector2(-26, 12)
-rotation = 0.0767719
-rotates = false
-loop = false
-
-[node name="Timer" type="Timer" parent="ResultArea/SpawnPoint/Path1"]
-
-[node name="Path2" type="Path2D" parent="ResultArea/SpawnPoint"]
-position = Vector2(-46, -34)
-curve = SubResource("Curve2D_p7tma")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="ResultArea/SpawnPoint/Path2"]
-position = Vector2(-26, 12)
-rotation = 0.0767719
-rotates = false
-loop = false
-
-[node name="Timer" type="Timer" parent="ResultArea/SpawnPoint/Path2"]
-
-[node name="Path3" type="Path2D" parent="ResultArea/SpawnPoint"]
-position = Vector2(-46, -14)
-curve = SubResource("Curve2D_p7tma")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="ResultArea/SpawnPoint/Path3"]
-position = Vector2(-26, 12)
-rotation = 0.0767719
-rotates = false
-loop = false
-
-[node name="Timer" type="Timer" parent="ResultArea/SpawnPoint/Path3"]
+[node name="SpawnStaggerTimer" type="Timer" parent="ResultArea"]
+wait_time = 0.2
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_2svhr")]
 position = Vector2(0, 32)
@@ -696,6 +657,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("24_66ac0")
 
+[connection signal="timeout" from="ResultArea/SpawnStaggerTimer" to="." method="_on_spawn_stagger_timer_timeout"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu" method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/SettingsButton" to="MainMenu" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="TopBar/CloseButton" to="TopBar" method="_on_close_button_pressed"]

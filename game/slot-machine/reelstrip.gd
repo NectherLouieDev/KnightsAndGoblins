@@ -1,3 +1,5 @@
+class_name Reelstrip
+
 extends Node2D
 
 signal spin_complete()
@@ -21,7 +23,6 @@ var speed = 10
 enum spin_stages { idle, start, spin, end, snap }
 var current_spin_stage = spin_stages.idle
 
-var _slot_config;
 var _reelstrip_model;
 var _index = -1
 
@@ -42,28 +43,27 @@ func _process(delta):
 		spin_stages.snap:
 			_process_snap(dt)
 
-func init(new_slot_config, new_index):
-	_slot_config = new_slot_config
-	_reelstrip_model = _slot_config.REELSTRIP_MODEL.duplicate()
+func init(new_index):
+	_reelstrip_model = SlotConfig.REELSTRIP_MODEL.duplicate()
 	_reelstrip_model.shuffle()
 	
 	_index = new_index
 	
 	var props = _reel_properties
-	props.symbol_size = _slot_config.SYMBOL_SIZE
+	props.symbol_size = SlotConfig.SYMBOL_SIZE
 	props.top_position.y = 0
 	props.bottom_position.y = props.top_position.y + (props.reel_size * props.symbol_size)
 
 func create_symbols():
 	var props = _reel_properties
-	var slot_config = _slot_config
+	var slot_config = SlotConfig
 	
 	for i in range(props.reel_size):
 		var new_symbol_node = slot_config.SYMBOL_NODE.instantiate()
 		var new_position = Vector2i(props.top_position.x, props.top_position.y + (props.symbol_size * i))
 		
 		# init
-		new_symbol_node.init_node(slot_config, new_position)
+		new_symbol_node.init_node(new_position)
 		
 		# create
 		new_symbol_node.create_visual(_reelstrip_model[i])
@@ -156,13 +156,6 @@ func _process_snap(delta):
 	_has_processed_snap = true
 		
 func _on_snap_complete():
-	print("_on_snap_complete()------------------>", _index)
-	print("_reel_properties.top_index----------->", _reel_properties.top_index)
-	print("_reel_properties.bottom_index ------->", _reel_properties.bottom_index)
-	print("result_symbol_nodes[0]->", result_symbol_nodes[0].position.y)
-	print("result_symbol_nodes[1]->", result_symbol_nodes[1].position.y)
-	print("result_symbol_nodes[2]->", result_symbol_nodes[2].position.y)
-	
 	emit_signal("spin_complete")
 	current_spin_stage = spin_stages.idle
 

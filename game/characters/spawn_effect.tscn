@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://ctv4j4nq6286w"]
+
+[ext_resource type="Script" path="res://game/characters/spawn_effect.gd" id="1_s2dyd"]
+[ext_resource type="Texture2D" uid="uid://c0k5b50t4uiqh" path="res://game/assets/effects/jump/1.png" id="1_wul4p"]
+[ext_resource type="Texture2D" uid="uid://b8fy6fw4bvt00" path="res://game/assets/effects/Boooooom (52x56).png" id="2_bt5mo"]
+[ext_resource type="Texture2D" uid="uid://dr1ni3t8mjmn" path="res://game/assets/effects/jump/2.png" id="2_q0fu6"]
+[ext_resource type="Texture2D" uid="uid://h34f1voikqlx" path="res://game/assets/effects/jump/3.png" id="3_c52p5"]
+[ext_resource type="Texture2D" uid="uid://cu8gjxm617r2w" path="res://game/assets/effects/jump/4.png" id="4_nxa86"]
+[ext_resource type="Texture2D" uid="uid://baayxbhhwjxth" path="res://game/assets/effects/jump/5.png" id="5_8h5kd"]
+[ext_resource type="Texture2D" uid="uid://cq1guxlhalulr" path="res://game/assets/effects/jump/6.png" id="6_fp32x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ccbl"]
+atlas = ExtResource("2_bt5mo")
+region = Rect2(0, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojl0f"]
+atlas = ExtResource("2_bt5mo")
+region = Rect2(52, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3cf0"]
+atlas = ExtResource("2_bt5mo")
+region = Rect2(104, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyyix"]
+atlas = ExtResource("2_bt5mo")
+region = Rect2(156, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8fua"]
+atlas = ExtResource("2_bt5mo")
+region = Rect2(208, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiyh1"]
+atlas = ExtResource("2_bt5mo")
+region = Rect2(260, 0, 52, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_34v8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ccbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojl0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3cf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyyix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8fua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiyh1")
+}],
+"loop": false,
+"name": &"Boom",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wul4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_q0fu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c52p5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nxa86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8h5kd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fp32x")
+}],
+"loop": false,
+"name": &"Play",
+"speed": 15.0
+}]
+
+[node name="SpawnEffect" type="Node2D"]
+script = ExtResource("1_s2dyd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -29)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_34v8p")
+animation = &"Play"
+autoplay = "Play"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

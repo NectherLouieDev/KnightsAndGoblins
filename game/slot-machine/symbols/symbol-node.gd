@@ -2,15 +2,13 @@ extends Node2D
 
 var symbol_id;
 
-var _slot_config;
 var _symbol_visual;
 
-func init_node(new_slot_config, new_position):
-	_slot_config = new_slot_config
+func init_node(new_position):
 	position = new_position
 
 func create_visual(new_symbol_id):
-	var config = _slot_config
+	var config = SlotConfig
 	
 	symbol_id = new_symbol_id
 	
@@ -19,7 +17,7 @@ func create_visual(new_symbol_id):
 	add_child(_symbol_visual)
 
 func update_visual(new_symbol_id):
-	var config = _slot_config
+	var config = SlotConfig
 	
 	# remove visual
 	remove_child(_symbol_visual)

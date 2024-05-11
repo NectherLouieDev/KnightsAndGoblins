@@ -1,4 +1,4 @@
-class_name CharacterWarrior
+class_name CharacterTorcher
 
 extends CharacterNode
 
