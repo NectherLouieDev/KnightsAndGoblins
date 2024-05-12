@@ -1,13 +1,13 @@
-[gd_scene load_steps=49 format=3 uid="uid://b30xvq7r8txbk"]
+[gd_scene load_steps=50 format=3 uid="uid://b30xvq7r8txbk"]
 
 [ext_resource type="PackedScene" uid="uid://bjqmdgruf7pkf" path="res://game/slot-machine/slot_machine.tscn" id="1_2svhr"]
 [ext_resource type="Script" path="res://game/game-manager.gd" id="1_7y8tc"]
-[ext_resource type="Texture2D" uid="uid://beyqjk1pyobyl" path="res://game/assets/deco/18.png" id="2_5tyxo"]
 [ext_resource type="Script" path="res://game/result/spawn-config.gd" id="2_vl5ts"]
 [ext_resource type="Texture2D" uid="uid://c5j6pjfxfsw6r" path="res://game/assets/terrain/Tilemap_Flat.png" id="5_1c6v8"]
 [ext_resource type="Texture2D" uid="uid://btxiogeffvsml" path="res://game/assets/terrain/Tilemap_Elevation.png" id="5_i30ha"]
 [ext_resource type="Texture2D" uid="uid://ct6mwiixdm5ak" path="res://game/assets/terrain/Bridge_All.png" id="6_p1dtw"]
 [ext_resource type="Texture2D" uid="uid://rc8e0md0tdsu" path="res://game/assets/terrain/Shadows.png" id="7_qs2q1"]
+[ext_resource type="PackedScene" uid="uid://bi61rke4ijj12" path="res://game/characters/dummy.tscn" id="8_506gn"]
 [ext_resource type="Texture2D" uid="uid://c6affpyrw1nn5" path="res://game/assets/user-interface/banner/Banner_Vertical.png" id="8_k1tef"]
 [ext_resource type="Texture2D" uid="uid://doawcrthsn3ka" path="res://game/assets/user-interface/banner/Banner_Connection_Right.png" id="8_sb2o1"]
 [ext_resource type="Texture2D" uid="uid://dcu1boj1kfkx3" path="res://game/assets/user-interface/banner/Carved_9Slides.png" id="10_13ofn"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bm42tk24vnjg" path="res://game/assets/user-interface/icons/Regular_01.png" id="24_66ac0"]
 [ext_resource type="Texture2D" uid="uid://b2vs5qyck53yp" path="res://game/assets/user-interface/banner/Carved_9Slides_black.png" id="26_84fin"]
 [ext_resource type="Script" path="res://game/slot-machine/slot-config.gd" id="29_4hp4o"]
+[ext_resource type="PackedScene" uid="uid://cvn5obomfmhg3" path="res://game/result/coin.tscn" id="30_5t777"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4642t"]
 texture = ExtResource("5_1c6v8")
@@ -264,12 +265,8 @@ layer_0/tile_data = PackedInt32Array(196626, 65539, 0, 196627, 65539, 0, 196628,
 [node name="ResultArea" type="Node2D" parent="."]
 position = Vector2(1024, 256)
 
-[node name="Dummy" type="Node2D" parent="ResultArea"]
-position = Vector2(624, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ResultArea/Dummy"]
-position = Vector2(0, -96)
-texture = ExtResource("2_5tyxo")
+[node name="Dummy" parent="ResultArea" instance=ExtResource("8_506gn")]
+position = Vector2(616, 0)
 
 [node name="SpawnStaggerTimer" type="Timer" parent="ResultArea"]
 wait_time = 0.2
@@ -573,7 +570,7 @@ theme_override_fonts/normal_font = ExtResource("11_sx1el")
 theme_override_fonts/bold_font = ExtResource("11_sx1el")
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
-text = "Symbol Upgrades"
+text = "Troop Upgrades"
 scroll_active = false
 autowrap_mode = 0
 
@@ -656,6 +653,9 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("24_66ac0")
+
+[node name="Coin" parent="." instance=ExtResource("30_5t777")]
+position = Vector2(1708, 184)
 
 [connection signal="timeout" from="ResultArea/SpawnStaggerTimer" to="." method="_on_spawn_stagger_timer_timeout"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu" method="_on_play_button_pressed"]

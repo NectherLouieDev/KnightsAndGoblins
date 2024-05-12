@@ -2,6 +2,7 @@ class_name SpawnPoint
 
 extends Node2D
 
+signal attack_started_signal()
 signal attack_complete_signal()
 
 @onready var path = $Path2D/PathFollow2D
@@ -39,9 +40,13 @@ func _process(delta):
 		
 		if path.progress_ratio >= 1:
 			var child = path.get_child(0) as CharacterNode
+			child.attack_animation_started.connect(_attack_started)
 			child.attack_animation_complete.connect(_attack_complete.bind(path, child))
 			child.play_attack()
 
+func _attack_started():
+	emit_signal("attack_started_signal")
+	
 func _attack_complete(path, child):
 	path.progress_ratio = 0
 	path.remove_child(child)

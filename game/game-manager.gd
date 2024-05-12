@@ -49,8 +49,13 @@ func _on_spin_complete():
 	spawn_index = 0
 	spawn_stagger_timer.start()
 
+@onready var dummy = $ResultArea/Dummy
+
 func _on_attack_complete():
 	spawn_points = []
+	
+func _hit_dummy():
+	dummy.play_hit()
 
 func _on_spawn_stagger_timer_timeout():
 	var i = spawn_index
@@ -65,10 +70,11 @@ func _on_spawn_stagger_timer_timeout():
 		spawn_index = 0
 		spawn_stagger_timer.stop()
 		
+	spawn_point.attack_started_signal.connect(_hit_dummy)
 	spawn_point.spawn(i, result[i])
 	
 	var fx = SPAWN_EFFECT.instantiate()
 	fx.z_index = spawn_z
 	spawn_point.add_child(fx)
-		
+	
 	spawn_index += 1

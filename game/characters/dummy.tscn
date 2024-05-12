@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi61rke4ijj12"]
+
+[ext_resource type="Script" path="res://game/characters/dummy.gd" id="1_tabmf"]
+[ext_resource type="Texture2D" uid="uid://beyqjk1pyobyl" path="res://game/assets/deco/18.png" id="2_td0b8"]
+
+[node name="Dummy" type="Node2D"]
+rotation = -0.0750492
+script = ExtResource("1_tabmf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -96)
+texture = ExtResource("2_td0b8")
