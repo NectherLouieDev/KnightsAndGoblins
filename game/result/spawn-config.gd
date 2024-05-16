@@ -2,6 +2,8 @@ class_name SpawnConfig
 
 extends Node2D
 
+enum TROOP_TYPE {MELEE, RANGE}
+
 const CHARACTER_WARRIOR = preload("res://game/characters/character_warrior.tscn")
 const CHARACTER_ARCHER = preload("res://game/characters/character_archer.tscn")
 const CHARACTER_TORCHER = preload("res://game/characters/character_torcher.tscn")

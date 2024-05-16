@@ -155,3 +155,9 @@ position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_l3wny")
 animation = &"Attack"
 autoplay = "Idle"
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.25

@@ -11,15 +11,27 @@ signal attack_complete_signal()
 var char: CharacterNode;
 
 var can_walk = false
+var _speed := 140
+var _progress_ratio_target := 1.0
+var _ratio_target_melee := 1.0
+var _ratio_target_range := 0.25
 
-func spawn(index, type)->void:
+func spawn(index, type, target)->void:
 	print("spawn()index->", index)
 	print("spawn()type->", type)
 	
 	path = $Path2D/PathFollow2D
 	timer = $Path2D/Timer
 	
-	char = SpawnConfig.CHARACTER_PRELOADS[type].instantiate()
+	char = SpawnConfig.CHARACTER_PRELOADS[type].instantiate() as CharacterNode
+	char.spawn_init(target)
+	
+	if char.get_troop_type() == SpawnConfig.TROOP_TYPE.RANGE:
+		_progress_ratio_target = _ratio_target_range
+	else:
+		_progress_ratio_target = _ratio_target_melee
+	
+	print("_progress_ratio_target->", _progress_ratio_target)
 	
 	timer.timeout.connect(_on_timer.bind(index))
 	timer.one_shot = true
@@ -33,12 +45,12 @@ func _on_timer(index):
 	can_walk = true
 	
 func _process(delta):
-	
-	var speed := 140.0
 	if can_walk == true:
-		path.progress += speed * delta
+		path.progress += _speed * delta
 		
-		if path.progress_ratio >= 1:
+		if path.progress_ratio >= _progress_ratio_target:
+			can_walk = false
+			
 			var child = path.get_child(0) as CharacterNode
 			child.attack_animation_started.connect(_attack_started)
 			child.attack_animation_complete.connect(_attack_complete.bind(path, child))

@@ -165,9 +165,16 @@ animations = [{
 script = ExtResource("1_lcxdl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
+texture_filter = 1
+position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_l3wny")
 animation = &"Attack"
 autoplay = "Idle"
 frame = 7
 frame_progress = 1.0
+
+[node name="ArrowTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.25

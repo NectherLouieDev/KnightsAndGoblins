@@ -164,3 +164,9 @@ animation = &"Attack"
 autoplay = "Idle"
 frame = 6
 frame_progress = 1.0
+
+[node name="ArrowTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.25

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp87of0tsvm5k"]
+
+[ext_resource type="Script" path="res://game/resources/projectile.gd" id="1_rcdno"]
+[ext_resource type="Texture2D" uid="uid://da85upo8mc62u" path="res://game/assets/resources/Arrow.png" id="2_xomxa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlmw1"]
+
+[node name="Projectile" type="CharacterBody2D"]
+script = ExtResource("1_rcdno")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xomxa")
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nlmw1")
+disabled = true
+one_way_collision = true

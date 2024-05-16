@@ -10,3 +10,9 @@ script = ExtResource("1_tabmf")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -96)
 texture = ExtResource("2_td0b8")
+
+[node name="HitSprite" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -96)
+texture = ExtResource("2_td0b8")

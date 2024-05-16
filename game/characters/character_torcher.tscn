@@ -163,3 +163,9 @@ sprite_frames = SubResource("SpriteFrames_l3wny")
 animation = &"Walk"
 autoplay = "Idle"
 frame_progress = 0.76952
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.25
