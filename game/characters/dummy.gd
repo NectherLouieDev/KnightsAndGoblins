@@ -7,8 +7,13 @@ var shake_duration = 0.05
 var shake_count = 2
 
 @onready var hit_sprite = $HitSprite
+const DAMAGE_NUMBER = preload("res://game/gameplay/damage_number.tscn")
 
-func play_hit():
+func play_hit(new_damage_value):
+	var dmg = DAMAGE_NUMBER.instantiate()
+	add_child(dmg)
+	dmg.spawn(new_damage_value)
+
 	var tween = create_tween()
 	
 	if tween.is_running():

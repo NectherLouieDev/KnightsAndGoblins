@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TroopsModel" load_steps=6 format=3 uid="uid://5bsxw0m5s307"]
+
+[ext_resource type="Script" path="res://game/resources/troops_model.gd" id="1_03rd4"]
+[ext_resource type="Resource" uid="uid://cflka5on0cpfk" path="res://game/resources/troops/data_warrior.tres" id="2_7a15y"]
+[ext_resource type="Resource" uid="uid://brmqlbvhqrvik" path="res://game/resources/troops/data_archer.tres" id="3_l3q7m"]
+[ext_resource type="Resource" uid="uid://2xhyii7tlim3" path="res://game/resources/troops/data_torcher.tres" id="4_i1icx"]
+[ext_resource type="Resource" uid="uid://dnpl2l41ehvxk" path="res://game/resources/troops/data_thrower.tres" id="5_esqix"]
+
+[resource]
+script = ExtResource("1_03rd4")
+troops = Array[Resource("res://game/resources/troops/data_troop.gd")]([ExtResource("2_7a15y"), ExtResource("3_l3q7m"), ExtResource("4_i1icx"), ExtResource("5_esqix")])
+troop = {}

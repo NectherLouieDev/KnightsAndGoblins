@@ -1,18 +1,13 @@
-class_name CharacterArcher
-
-extends CharacterNode
+class_name CharacterArcher extends CharacterBase
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var arrow_timer = $ArrowTimer
 @onready var attack_timer = $AttackTimer
 
-const PROJECTILE_ARROW = preload("res://game/resources/projectile-arrow.tscn")
 var projectile: Projectile
 
-var target;
-
-func spawn_init(new_target):
-	set_troop_type(SpawnConfig.TROOP_TYPE.RANGE)
+func spawn_init(new_data_troop, new_target):
+	data_troop = new_data_troop
 	target = new_target
 
 func play_walk():
@@ -23,9 +18,9 @@ func play_attack():
 	animated_sprite_2d.play("Attack")
 
 func _on_attack_animation_finished():
-	projectile = PROJECTILE_ARROW.instantiate()
+	projectile = data_troop.sceneProjectile.instantiate()
 	add_child(projectile)
-	projectile.launch(target)
+	projectile.launch(super.get_target())
 	
 	arrow_timer.timeout.connect(_on_arrow_hit)
 	arrow_timer.one_shot = true

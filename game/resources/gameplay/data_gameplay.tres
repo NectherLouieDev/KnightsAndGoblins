@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DataGameplay" load_steps=2 format=3 uid="uid://ghrel8p0gouo"]
+
+[ext_resource type="Script" path="res://game/resources/gameplay/data_gameplay.gd" id="1_lgk1q"]
+
+[resource]
+script = ExtResource("1_lgk1q")
+spins_left_reset = 100
+spins_left = 100

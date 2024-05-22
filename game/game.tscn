@@ -1,8 +1,7 @@
-[gd_scene load_steps=50 format=3 uid="uid://b30xvq7r8txbk"]
+[gd_scene load_steps=48 format=3 uid="uid://b30xvq7r8txbk"]
 
 [ext_resource type="PackedScene" uid="uid://bjqmdgruf7pkf" path="res://game/slot-machine/slot_machine.tscn" id="1_2svhr"]
-[ext_resource type="Script" path="res://game/game-manager.gd" id="1_7y8tc"]
-[ext_resource type="Script" path="res://game/result/spawn-config.gd" id="2_vl5ts"]
+[ext_resource type="Script" path="res://game/game_manager.gd" id="1_7y8tc"]
 [ext_resource type="Texture2D" uid="uid://c5j6pjfxfsw6r" path="res://game/assets/terrain/Tilemap_Flat.png" id="5_1c6v8"]
 [ext_resource type="Texture2D" uid="uid://btxiogeffvsml" path="res://game/assets/terrain/Tilemap_Elevation.png" id="5_i30ha"]
 [ext_resource type="Texture2D" uid="uid://ct6mwiixdm5ak" path="res://game/assets/terrain/Bridge_All.png" id="6_p1dtw"]
@@ -11,14 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://c6affpyrw1nn5" path="res://game/assets/user-interface/banner/Banner_Vertical.png" id="8_k1tef"]
 [ext_resource type="Texture2D" uid="uid://doawcrthsn3ka" path="res://game/assets/user-interface/banner/Banner_Connection_Right.png" id="8_sb2o1"]
 [ext_resource type="Texture2D" uid="uid://dcu1boj1kfkx3" path="res://game/assets/user-interface/banner/Carved_9Slides.png" id="10_13ofn"]
+[ext_resource type="Texture2D" uid="uid://dywx48pbs1ntq" path="res://game/assets/user-interface/icons/Regular_04.png" id="10_imus4"]
+[ext_resource type="Texture2D" uid="uid://c18c7osd2xkwx" path="res://game/assets/user-interface/icons/Regular_05.png" id="11_5p06s"]
 [ext_resource type="FontFile" uid="uid://btiou0g2n8itb" path="res://game/assets/fonts/NotoSerifDisplay-Black.ttf" id="11_sx1el"]
 [ext_resource type="Texture2D" uid="uid://bua257gvhrnlb" path="res://game/assets/user-interface/buttons/Button_Red_9Slides.png" id="11_vh1bk"]
 [ext_resource type="Texture2D" uid="uid://drmpqdwgxspgg" path="res://game/assets/user-interface/icons/Regular_08.png" id="12_1ndp4"]
-[ext_resource type="Texture2D" uid="uid://cqvtxoictvhgy" path="res://game/assets/user-interface/buttons/Button_Blue_9Slides.png" id="12_tb64a"]
+[ext_resource type="Texture2D" uid="uid://qktjy0uv17on" path="res://game/assets/user-interface/icons/Regular_06.png" id="12_e45rx"]
 [ext_resource type="Texture2D" uid="uid://khmyww5tv874" path="res://game/assets/user-interface/icons/Pressed_08.png" id="13_3w6pe"]
+[ext_resource type="Texture2D" uid="uid://c4gyb1kgqhh4u" path="res://game/assets/user-interface/icons/Regular_07.png" id="13_04s3e"]
 [ext_resource type="Texture2D" uid="uid://yeuasntc6u4o" path="res://game/assets/user-interface/buttons/Button_Hover_9Slides.png" id="13_li27q"]
 [ext_resource type="Texture2D" uid="uid://c7qpdhs1u4knc" path="res://game/assets/user-interface/buttons/Button_Red_9Slides_Pressed.png" id="13_ypfug"]
-[ext_resource type="Texture2D" uid="uid://bdhpnmk100h4" path="res://game/assets/user-interface/buttons/Button_Blue_9Slides_Pressed.png" id="14_eo3ga"]
 [ext_resource type="Texture2D" uid="uid://b7waa3ehtpy8s" path="res://game/assets/user-interface/icons/Disable_08.png" id="15_q7muv"]
 [ext_resource type="Texture2D" uid="uid://k5stemyj7mvh" path="res://game/assets/user-interface/buttons/Button_Disable_9Slides.png" id="15_yorui"]
 [ext_resource type="Texture2D" uid="uid://c4xwmqmehdgkt" path="res://game/assets/user-interface/ribbon/Ribbon_Red_3Slides.png" id="18_gjb57"]
@@ -28,8 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://da0ptia3uystn" path="res://game/assets/user-interface/buttons/Button_Red_Pressed.png" id="23_04l3c"]
 [ext_resource type="Texture2D" uid="uid://bm42tk24vnjg" path="res://game/assets/user-interface/icons/Regular_01.png" id="24_66ac0"]
 [ext_resource type="Texture2D" uid="uid://b2vs5qyck53yp" path="res://game/assets/user-interface/banner/Carved_9Slides_black.png" id="26_84fin"]
-[ext_resource type="Script" path="res://game/slot-machine/slot-config.gd" id="29_4hp4o"]
-[ext_resource type="PackedScene" uid="uid://cvn5obomfmhg3" path="res://game/resources/coin.tscn" id="30_5t777"]
+[ext_resource type="Script" path="res://game/slot-machine/slot_config.gd" id="29_4hp4o"]
+[ext_resource type="PackedScene" uid="uid://cvn5obomfmhg3" path="res://game/gameplay/coin.tscn" id="30_5t777"]
+[ext_resource type="Texture2D" uid="uid://dnbj54y4hmdsy" path="res://game/assets/user-interface/banner/Banner_Horizontal.png" id="30_dfnrg"]
+[ext_resource type="Script" path="res://game/gameplay/hud_spins_left.gd" id="30_rf38v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4642t"]
 texture = ExtResource("5_1c6v8")
@@ -137,20 +140,6 @@ sources/2 = SubResource("TileSetAtlasSource_fvqf4")
 sources/3 = SubResource("TileSetAtlasSource_u2dco")
 sources/4 = SubResource("TileSetAtlasSource_thnyo")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhb2f"]
-texture = ExtResource("12_tb64a")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uoo2u"]
-texture = ExtResource("13_li27q")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y7mdu"]
-texture = ExtResource("14_eo3ga")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5c377"]
-texture = ExtResource("15_yorui")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l6n2"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gm203"]
 texture = ExtResource("11_vh1bk")
 
@@ -202,10 +191,6 @@ script = ExtResource("1_7y8tc")
 [node name="SlotConfig" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("29_4hp4o")
-
-[node name="SpawnConfig" type="Node2D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("2_vl5ts")
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(0, 51)
@@ -269,27 +254,28 @@ position = Vector2(1024, 256)
 position = Vector2(616, 0)
 
 [node name="SpawnStaggerTimer" type="Timer" parent="ResultArea"]
-wait_time = 0.05
+wait_time = 0.1
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_2svhr")]
 position = Vector2(0, 32)
 
 [node name="PlayerStats" type="Node2D" parent="."]
-position = Vector2(1808, -32)
+position = Vector2(1764, -32)
 
-[node name="SpinButtonGroup" type="Control" parent="PlayerStats"]
+[node name="TabGroup1" type="Control" parent="PlayerStats"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = 144.0
-offset_right = -48.0
-offset_bottom = 144.0
+offset_left = 66.0
+offset_top = 108.0
+offset_right = 66.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 
-[node name="SpinButtonBanner" type="NinePatchRect" parent="PlayerStats/SpinButtonGroup"]
+[node name="Banner" type="NinePatchRect" parent="PlayerStats/TabGroup1"]
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 256.0
@@ -300,41 +286,134 @@ patch_margin_top = 64
 patch_margin_right = 64
 patch_margin_bottom = 64
 
-[node name="BackFrame11" type="NinePatchRect" parent="PlayerStats/SpinButtonGroup"]
+[node name="Icon" type="NinePatchRect" parent="PlayerStats/TabGroup1"]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 70.0
 offset_top = 64.0
-offset_right = 184.0
+offset_right = 198.0
 offset_bottom = 192.0
-texture = ExtResource("10_13ofn")
-region_rect = Rect2(0, 0, 192, 192)
+texture = ExtResource("10_imus4")
+region_rect = Rect2(7.20163, -0.0702057, 51.6182, 49.3878)
 patch_margin_left = 8
-patch_margin_top = 8
+patch_margin_top = 9
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="SpinButton" type="Button" parent="PlayerStats/SpinButtonGroup"]
-layout_mode = 1
-offset_left = 56.0
+[node name="TabGroup2" type="Control" parent="PlayerStats"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = 196.0
+offset_right = 78.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="Banner" type="NinePatchRect" parent="PlayerStats/TabGroup2"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("8_sb2o1")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="Icon" type="NinePatchRect" parent="PlayerStats/TabGroup2"]
+layout_mode = 0
+offset_left = 70.0
 offset_top = 64.0
-offset_right = 184.0
+offset_right = 198.0
 offset_bottom = 192.0
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.486275)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_sx1el")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_uhb2f")
-theme_override_styles/hover = SubResource("StyleBoxTexture_uoo2u")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_y7mdu")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_5c377")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3l6n2")
-text = "SPIN"
-icon_alignment = 1
+texture = ExtResource("11_5p06s")
+region_rect = Rect2(7.20163, -0.0702057, 51.6182, 49.3878)
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 8
+patch_margin_bottom = 8
 
-[node name="UpgradeSymbols" type="Node2D" parent="."]
-position = Vector2(1952, 16)
+[node name="TabGroup3" type="Control" parent="PlayerStats"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = 284.0
+offset_right = 78.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 
-[node name="Banner" type="NinePatchRect" parent="UpgradeSymbols"]
+[node name="Banner" type="NinePatchRect" parent="PlayerStats/TabGroup3"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("8_sb2o1")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="Icon" type="NinePatchRect" parent="PlayerStats/TabGroup3"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 64.0
+offset_right = 198.0
+offset_bottom = 192.0
+texture = ExtResource("12_e45rx")
+region_rect = Rect2(7.20163, -0.0702057, 51.6182, 49.3878)
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="TabGroup4" type="Control" parent="PlayerStats"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = 374.0
+offset_right = 78.0
+offset_bottom = 374.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="Banner" type="NinePatchRect" parent="PlayerStats/TabGroup4"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("8_sb2o1")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="Icon" type="NinePatchRect" parent="PlayerStats/TabGroup4"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 64.0
+offset_right = 198.0
+offset_bottom = 192.0
+texture = ExtResource("13_04s3e")
+region_rect = Rect2(7.20163, -0.0702057, 51.6182, 49.3878)
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="TroopUpgrades" type="Node2D" parent="."]
+position = Vector2(1908, 16)
+
+[node name="Banner" type="NinePatchRect" parent="TroopUpgrades"]
 offset_right = 760.0
 offset_bottom = 495.0
 texture = ExtResource("8_k1tef")
@@ -344,18 +423,18 @@ patch_margin_top = 64
 patch_margin_right = 64
 patch_margin_bottom = 64
 
-[node name="GridContainer" type="GridContainer" parent="UpgradeSymbols"]
+[node name="GridContainer" type="GridContainer" parent="TroopUpgrades"]
 offset_left = 112.0
 offset_top = 112.0
 offset_right = 696.0
 offset_bottom = 496.0
 columns = 3
 
-[node name="ButtonGroup" type="Control" parent="UpgradeSymbols/GridContainer"]
+[node name="ButtonGroup" type="Control" parent="TroopUpgrades/GridContainer"]
 custom_minimum_size = Vector2(192, 160)
 layout_mode = 2
 
-[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup"]
+[node name="BackFrame11" type="NinePatchRect" parent="TroopUpgrades/GridContainer/ButtonGroup"]
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
@@ -366,7 +445,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup"]
+[node name="SpinButton" type="Button" parent="TroopUpgrades/GridContainer/ButtonGroup"]
 visible = false
 layout_mode = 1
 offset_right = 128.0
@@ -378,7 +457,7 @@ theme_override_font_sizes/font_size = 32
 icon = ExtResource("15_q7muv")
 icon_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="UpgradeSymbols/GridContainer/ButtonGroup"]
+[node name="TextureButton" type="TextureButton" parent="TroopUpgrades/GridContainer/ButtonGroup"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 0
 offset_right = 40.0
@@ -392,11 +471,11 @@ texture_disabled = ExtResource("15_q7muv")
 texture_focused = ExtResource("12_1ndp4")
 stretch_mode = 3
 
-[node name="ButtonGroup2" type="Control" parent="UpgradeSymbols/GridContainer"]
+[node name="ButtonGroup2" type="Control" parent="TroopUpgrades/GridContainer"]
 custom_minimum_size = Vector2(192, 160)
 layout_mode = 2
 
-[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup2"]
+[node name="BackFrame11" type="NinePatchRect" parent="TroopUpgrades/GridContainer/ButtonGroup2"]
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
@@ -407,7 +486,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup2"]
+[node name="SpinButton" type="Button" parent="TroopUpgrades/GridContainer/ButtonGroup2"]
 layout_mode = 1
 offset_right = 128.0
 offset_bottom = 128.0
@@ -424,11 +503,11 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_loyh1")
 icon = ExtResource("15_q7muv")
 icon_alignment = 1
 
-[node name="ButtonGroup3" type="Control" parent="UpgradeSymbols/GridContainer"]
+[node name="ButtonGroup3" type="Control" parent="TroopUpgrades/GridContainer"]
 custom_minimum_size = Vector2(192, 160)
 layout_mode = 2
 
-[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup3"]
+[node name="BackFrame11" type="NinePatchRect" parent="TroopUpgrades/GridContainer/ButtonGroup3"]
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
@@ -439,7 +518,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup3"]
+[node name="SpinButton" type="Button" parent="TroopUpgrades/GridContainer/ButtonGroup3"]
 layout_mode = 1
 offset_right = 128.0
 offset_bottom = 128.0
@@ -456,11 +535,11 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_loyh1")
 icon = ExtResource("15_q7muv")
 icon_alignment = 1
 
-[node name="ButtonGroup4" type="Control" parent="UpgradeSymbols/GridContainer"]
+[node name="ButtonGroup4" type="Control" parent="TroopUpgrades/GridContainer"]
 custom_minimum_size = Vector2(192, 160)
 layout_mode = 2
 
-[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup4"]
+[node name="BackFrame11" type="NinePatchRect" parent="TroopUpgrades/GridContainer/ButtonGroup4"]
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
@@ -471,7 +550,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup4"]
+[node name="SpinButton" type="Button" parent="TroopUpgrades/GridContainer/ButtonGroup4"]
 layout_mode = 1
 offset_right = 128.0
 offset_bottom = 128.0
@@ -488,11 +567,11 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_loyh1")
 icon = ExtResource("15_q7muv")
 icon_alignment = 1
 
-[node name="ButtonGroup5" type="Control" parent="UpgradeSymbols/GridContainer"]
+[node name="ButtonGroup5" type="Control" parent="TroopUpgrades/GridContainer"]
 custom_minimum_size = Vector2(192, 160)
 layout_mode = 2
 
-[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup5"]
+[node name="BackFrame11" type="NinePatchRect" parent="TroopUpgrades/GridContainer/ButtonGroup5"]
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
@@ -503,7 +582,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup5"]
+[node name="SpinButton" type="Button" parent="TroopUpgrades/GridContainer/ButtonGroup5"]
 layout_mode = 1
 offset_right = 128.0
 offset_bottom = 128.0
@@ -520,11 +599,11 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_loyh1")
 icon = ExtResource("15_q7muv")
 icon_alignment = 1
 
-[node name="ButtonGroup6" type="Control" parent="UpgradeSymbols/GridContainer"]
+[node name="ButtonGroup6" type="Control" parent="TroopUpgrades/GridContainer"]
 custom_minimum_size = Vector2(192, 160)
 layout_mode = 2
 
-[node name="BackFrame11" type="NinePatchRect" parent="UpgradeSymbols/GridContainer/ButtonGroup6"]
+[node name="BackFrame11" type="NinePatchRect" parent="TroopUpgrades/GridContainer/ButtonGroup6"]
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
@@ -535,7 +614,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="SpinButton" type="Button" parent="UpgradeSymbols/GridContainer/ButtonGroup6"]
+[node name="SpinButton" type="Button" parent="TroopUpgrades/GridContainer/ButtonGroup6"]
 layout_mode = 1
 offset_right = 128.0
 offset_bottom = 128.0
@@ -552,7 +631,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_loyh1")
 icon = ExtResource("15_q7muv")
 icon_alignment = 1
 
-[node name="Ribbon" type="NinePatchRect" parent="UpgradeSymbols"]
+[node name="Ribbon" type="NinePatchRect" parent="TroopUpgrades"]
 offset_right = 768.0
 offset_bottom = 80.0
 texture = ExtResource("18_gjb57")
@@ -560,7 +639,7 @@ region_rect = Rect2(0, 0, 192, 64)
 patch_margin_left = 64
 patch_margin_right = 64
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UpgradeSymbols/Ribbon"]
+[node name="RichTextLabel" type="RichTextLabel" parent="TroopUpgrades/Ribbon"]
 layout_mode = 0
 offset_left = 240.0
 offset_top = 8.0
@@ -657,6 +736,70 @@ texture = ExtResource("24_66ac0")
 
 [node name="Coin" parent="." instance=ExtResource("30_5t777")]
 position = Vector2(1708, 184)
+
+[node name="SpinCountGroup" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 872.0
+offset_top = 298.0
+offset_right = 872.0
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("30_rf38v")
+
+[node name="Banner" type="NinePatchRect" parent="SpinCountGroup"]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 256.0
+texture = ExtResource("30_dfnrg")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="BackFrame" type="NinePatchRect" parent="SpinCountGroup"]
+self_modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 192.0
+texture = ExtResource("26_84fin")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="SpinsLeftTitle" type="Label" parent="SpinCountGroup"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 74.0
+offset_right = 285.0
+offset_bottom = 119.0
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 32
+text = "SPINS LEFT"
+
+[node name="SpinsLeftValue" type="Label" parent="SpinCountGroup"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 116.0
+offset_right = 250.0
+offset_bottom = 196.0
+pivot_offset = Vector2(64, 40)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 48
+text = "100"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="ResultArea/SpawnStaggerTimer" to="." method="_on_spawn_stagger_timer_timeout"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu" method="_on_play_button_pressed"]

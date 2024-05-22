@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bjqmdgruf7pkf"]
 
-[ext_resource type="Script" path="res://game/slot-machine/slot-machine.gd" id="1_rikjq"]
+[ext_resource type="Script" path="res://game/slot-machine/slot_machine.gd" id="1_rikjq"]
 [ext_resource type="Texture2D" uid="uid://c6affpyrw1nn5" path="res://game/assets/user-interface/banner/Banner_Vertical.png" id="3_cb8ts"]
 [ext_resource type="FontFile" uid="uid://btiou0g2n8itb" path="res://game/assets/fonts/NotoSerifDisplay-Black.ttf" id="5_8vby3"]
 [ext_resource type="Texture2D" uid="uid://yeuasntc6u4o" path="res://game/assets/user-interface/buttons/Button_Hover_9Slides.png" id="6_jw84o"]

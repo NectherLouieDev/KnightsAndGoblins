@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DataTroop" load_steps=3 format=3 uid="uid://2xhyii7tlim3"]
+
+[ext_resource type="Script" path="res://game/resources/troops/data_troop.gd" id="1_3aj0r"]
+[ext_resource type="PackedScene" uid="uid://dw3u81ih51huq" path="res://game/characters/character_torcher.tscn" id="1_24mdh"]
+
+[resource]
+script = ExtResource("1_3aj0r")
+symbol_id = 2
+troop_atk_type = 0
+sceneCharacter = ExtResource("1_24mdh")
+level = 1
+damage = 150

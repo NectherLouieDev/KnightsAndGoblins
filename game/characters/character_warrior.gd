@@ -1,4 +1,4 @@
-class_name CharacterTorcher extends CharacterBase
+class_name CharacterWarrior extends CharacterBase
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var hit_timer = $HitTimer
@@ -12,6 +12,7 @@ func play_walk():
 	animated_sprite_2d.play("Walk")
 
 func play_attack():
+	
 	attack_timer.timeout.connect(_on_attack_animation_finished)
 	attack_timer.one_shot = true
 	attack_timer.start()

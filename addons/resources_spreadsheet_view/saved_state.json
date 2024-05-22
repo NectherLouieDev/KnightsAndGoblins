@@ -1,0 +1,19 @@
+{
+  "hidden_columns": {
+    "res://game/resources/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
+    "res://game/resources/troops/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    }
+  },
+  "recent_paths": [
+    "res://game/resources/troops/",
+    "res://game/resources/"
+  ],
+  "table_functions": {
+
+  }
+}
