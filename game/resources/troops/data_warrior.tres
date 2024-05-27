@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DataTroop" load_steps=3 format=3 uid="uid://cflka5on0cpfk"]
 
 [ext_resource type="Script" path="res://game/resources/troops/data_troop.gd" id="1_lwh83"]
-[ext_resource type="PackedScene" uid="uid://ds560i6tgw0kt" path="res://game/characters/character_warrior.tscn" id="1_o0yqv"]
+[ext_resource type="PackedScene" uid="uid://ds560i6tgw0kt" path="res://game/characters/troops/character_warrior.tscn" id="1_o0yqv"]
 
 [resource]
 script = ExtResource("1_lwh83")

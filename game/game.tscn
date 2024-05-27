@@ -1,19 +1,22 @@
-[gd_scene load_steps=48 format=3 uid="uid://b30xvq7r8txbk"]
+[gd_scene load_steps=50 format=3 uid="uid://b30xvq7r8txbk"]
 
 [ext_resource type="PackedScene" uid="uid://bjqmdgruf7pkf" path="res://game/slot-machine/slot_machine.tscn" id="1_2svhr"]
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_7y8tc"]
+[ext_resource type="Script" path="res://game/gameplay/game_states/load_state.gd" id="2_mwn2u"]
+[ext_resource type="Script" path="res://game/gameplay/game_states/idle_state.gd" id="3_1fmu5"]
+[ext_resource type="Script" path="res://game/gameplay/game_states/play_state.gd" id="4_dyfju"]
 [ext_resource type="Texture2D" uid="uid://c5j6pjfxfsw6r" path="res://game/assets/terrain/Tilemap_Flat.png" id="5_1c6v8"]
 [ext_resource type="Texture2D" uid="uid://btxiogeffvsml" path="res://game/assets/terrain/Tilemap_Elevation.png" id="5_i30ha"]
 [ext_resource type="Texture2D" uid="uid://ct6mwiixdm5ak" path="res://game/assets/terrain/Bridge_All.png" id="6_p1dtw"]
 [ext_resource type="Texture2D" uid="uid://rc8e0md0tdsu" path="res://game/assets/terrain/Shadows.png" id="7_qs2q1"]
-[ext_resource type="PackedScene" uid="uid://bi61rke4ijj12" path="res://game/characters/dummy.tscn" id="8_506gn"]
+[ext_resource type="PackedScene" uid="uid://bi61rke4ijj12" path="res://game/characters/enemies/dummy.tscn" id="8_506gn"]
 [ext_resource type="Texture2D" uid="uid://c6affpyrw1nn5" path="res://game/assets/user-interface/banner/Banner_Vertical.png" id="8_k1tef"]
 [ext_resource type="Texture2D" uid="uid://doawcrthsn3ka" path="res://game/assets/user-interface/banner/Banner_Connection_Right.png" id="8_sb2o1"]
 [ext_resource type="Texture2D" uid="uid://dcu1boj1kfkx3" path="res://game/assets/user-interface/banner/Carved_9Slides.png" id="10_13ofn"]
 [ext_resource type="Texture2D" uid="uid://dywx48pbs1ntq" path="res://game/assets/user-interface/icons/Regular_04.png" id="10_imus4"]
 [ext_resource type="Texture2D" uid="uid://c18c7osd2xkwx" path="res://game/assets/user-interface/icons/Regular_05.png" id="11_5p06s"]
 [ext_resource type="FontFile" uid="uid://btiou0g2n8itb" path="res://game/assets/fonts/NotoSerifDisplay-Black.ttf" id="11_sx1el"]
-[ext_resource type="Texture2D" uid="uid://bua257gvhrnlb" path="res://game/assets/user-interface/buttons/Button_Red_9Slides.png" id="11_vh1bk"]
+[ext_resource type="PackedScene" uid="uid://d1e8666gxiogo" path="res://game/characters/enemies/enemy.tscn" id="11_xvhra"]
 [ext_resource type="Texture2D" uid="uid://drmpqdwgxspgg" path="res://game/assets/user-interface/icons/Regular_08.png" id="12_1ndp4"]
 [ext_resource type="Texture2D" uid="uid://qktjy0uv17on" path="res://game/assets/user-interface/icons/Regular_06.png" id="12_e45rx"]
 [ext_resource type="Texture2D" uid="uid://khmyww5tv874" path="res://game/assets/user-interface/icons/Pressed_08.png" id="13_3w6pe"]
@@ -25,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://c4xwmqmehdgkt" path="res://game/assets/user-interface/ribbon/Ribbon_Red_3Slides.png" id="18_gjb57"]
 [ext_resource type="Texture2D" uid="uid://bn80axl35s84y" path="res://game/assets/user-interface/buttons/Button_Red.png" id="22_jo87t"]
 [ext_resource type="Script" path="res://game/menu.gd" id="22_l21sb"]
-[ext_resource type="Script" path="res://game/main-menu.gd" id="22_qjp1j"]
+[ext_resource type="Texture2D" uid="uid://djd15m58a5i1s" path="res://game/assets/user-interface/buttons/Button_Blue_3Slides.png" id="22_q6ssx"]
 [ext_resource type="Texture2D" uid="uid://da0ptia3uystn" path="res://game/assets/user-interface/buttons/Button_Red_Pressed.png" id="23_04l3c"]
 [ext_resource type="Texture2D" uid="uid://bm42tk24vnjg" path="res://game/assets/user-interface/icons/Regular_01.png" id="24_66ac0"]
 [ext_resource type="Texture2D" uid="uid://b2vs5qyck53yp" path="res://game/assets/user-interface/banner/Carved_9Slides_black.png" id="26_84fin"]
@@ -33,6 +36,9 @@
 [ext_resource type="PackedScene" uid="uid://cvn5obomfmhg3" path="res://game/gameplay/coin.tscn" id="30_5t777"]
 [ext_resource type="Texture2D" uid="uid://dnbj54y4hmdsy" path="res://game/assets/user-interface/banner/Banner_Horizontal.png" id="30_dfnrg"]
 [ext_resource type="Script" path="res://game/gameplay/hud_spins_left.gd" id="30_rf38v"]
+[ext_resource type="Texture2D" uid="uid://cyadpunkcrd24" path="res://game/assets/user-interface/banner/Carved_3Slides.png" id="35_pu66i"]
+[ext_resource type="Script" path="res://game/gameplay/idle_menu.gd" id="35_tu6d5"]
+[ext_resource type="Texture2D" uid="uid://bx0plgawv13tc" path="res://game/assets/user-interface/buttons/Button_Blue_3Slides_Pressed.png" id="36_v4tw5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4642t"]
 texture = ExtResource("5_1c6v8")
@@ -141,7 +147,7 @@ sources/3 = SubResource("TileSetAtlasSource_u2dco")
 sources/4 = SubResource("TileSetAtlasSource_thnyo")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gm203"]
-texture = ExtResource("11_vh1bk")
+texture = ExtResource("22_q6ssx")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4pbh"]
 texture = ExtResource("13_li27q")
@@ -154,39 +160,34 @@ texture = ExtResource("15_yorui")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_loyh1"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5cj4y"]
-texture = ExtResource("13_li27q")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 32.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncwm0"]
-texture = ExtResource("13_li27q")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 32.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3iq3"]
-texture = ExtResource("15_yorui")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 32.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j18oy"]
-texture = ExtResource("15_yorui")
-
 [node name="Game" type="Node2D"]
 scale = Vector2(0.5, 0.5)
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("game_state_array")]
+unique_name_in_owner = true
 script = ExtResource("1_7y8tc")
+game_state_array = [NodePath("LoadState"), NodePath("IdleState"), NodePath("PlayState")]
+
+[node name="LoadState" type="Node" parent="GameManager" node_paths=PackedStringArray("slot_machine")]
+script = ExtResource("2_mwn2u")
+slot_machine = NodePath("../../SlotMachine")
+
+[node name="IdleState" type="Node" parent="GameManager" node_paths=PackedStringArray("slot_machine", "result_area", "dummy", "spawn_stagger_timer", "idle_menu", "new_button")]
+script = ExtResource("3_1fmu5")
+slot_machine = NodePath("../../SlotMachine")
+result_area = NodePath("../../ResultArea")
+dummy = NodePath("../../ResultArea/Dummy")
+spawn_stagger_timer = NodePath("../../ResultArea/SpawnStaggerTimer")
+idle_menu = NodePath("../../IdleMenu")
+new_button = NodePath("../../IdleMenu/GridContainer/NewButtonGroup/NewButton")
+
+[node name="PlayState" type="Node" parent="GameManager" node_paths=PackedStringArray("slot_machine", "result_area", "enemy", "spawn_stagger_timer", "hud_spins_left")]
+script = ExtResource("4_dyfju")
+slot_machine = NodePath("../../SlotMachine")
+result_area = NodePath("../../ResultArea")
+enemy = NodePath("../../ResultArea/Enemy")
+spawn_stagger_timer = NodePath("../../ResultArea/SpawnStaggerTimer")
+hud_spins_left = NodePath("../../HUDSpinsLeft")
 
 [node name="SlotConfig" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -255,6 +256,10 @@ position = Vector2(616, 0)
 
 [node name="SpawnStaggerTimer" type="Timer" parent="ResultArea"]
 wait_time = 0.1
+
+[node name="Enemy" parent="ResultArea" instance=ExtResource("11_xvhra")]
+visible = false
+position = Vector2(608, -32)
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_2svhr")]
 position = Vector2(0, 32)
@@ -653,69 +658,6 @@ text = "Troop Upgrades"
 scroll_active = false
 autowrap_mode = 0
 
-[node name="MainMenu" type="Node2D" parent="."]
-visible = false
-script = ExtResource("22_qjp1j")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="MainMenu"]
-modulate = Color(1, 1, 1, 0.627451)
-offset_left = -216.0
-offset_top = 40.0
-offset_right = 3984.0
-offset_bottom = 500.0
-texture = ExtResource("26_84fin")
-region_rect = Rect2(0, 0, 192, 192)
-patch_margin_left = 2
-patch_margin_top = 64
-patch_margin_right = 2
-patch_margin_bottom = 64
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
-offset_left = 1664.0
-offset_top = 240.0
-offset_right = 2176.0
-offset_bottom = 496.0
-
-[node name="PlayButton" type="Button" parent="MainMenu/VBoxContainer"]
-custom_minimum_size = Vector2(128, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_colors/font_pressed_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_colors/font_hover_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_colors/font_focus_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.705882)
-theme_override_colors/font_outline_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("11_sx1el")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_5cj4y")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ncwm0")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_x3iq3")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_j18oy")
-text = "PLAY"
-icon_alignment = 1
-
-[node name="SettingsButton" type="Button" parent="MainMenu/VBoxContainer"]
-custom_minimum_size = Vector2(128, 64)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_colors/font_pressed_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_colors/font_hover_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_colors/font_focus_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.705882)
-theme_override_colors/font_outline_color = Color(0.278431, 0.670588, 0.662745, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("11_sx1el")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_5cj4y")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ncwm0")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_x3iq3")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_j18oy")
-text = "SETTINGS"
-icon_alignment = 1
-
 [node name="TopBar" type="Node2D" parent="."]
 script = ExtResource("22_l21sb")
 
@@ -737,20 +679,21 @@ texture = ExtResource("24_66ac0")
 [node name="Coin" parent="." instance=ExtResource("30_5t777")]
 position = Vector2(1708, 184)
 
-[node name="SpinCountGroup" type="Control" parent="."]
+[node name="HUDSpinsLeft" type="Control" parent="." node_paths=PackedStringArray("spins_left_value")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 872.0
-offset_top = 298.0
+offset_top = 648.0
 offset_right = 872.0
-offset_bottom = 298.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("30_rf38v")
+spins_left_value = NodePath("SpinsLeftValue")
 
-[node name="Banner" type="NinePatchRect" parent="SpinCountGroup"]
+[node name="Banner" type="NinePatchRect" parent="HUDSpinsLeft"]
 layout_mode = 0
 offset_right = 384.0
 offset_bottom = 256.0
@@ -761,7 +704,7 @@ patch_margin_top = 64
 patch_margin_right = 64
 patch_margin_bottom = 64
 
-[node name="BackFrame" type="NinePatchRect" parent="SpinCountGroup"]
+[node name="BackFrame" type="NinePatchRect" parent="HUDSpinsLeft"]
 self_modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 0
 offset_left = 64.0
@@ -775,7 +718,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="SpinsLeftTitle" type="Label" parent="SpinCountGroup"]
+[node name="SpinsLeftTitle" type="Label" parent="HUDSpinsLeft"]
 layout_mode = 0
 offset_left = 92.0
 offset_top = 74.0
@@ -787,7 +730,7 @@ theme_override_fonts/font = ExtResource("11_sx1el")
 theme_override_font_sizes/font_size = 32
 text = "SPINS LEFT"
 
-[node name="SpinsLeftValue" type="Label" parent="SpinCountGroup"]
+[node name="SpinsLeftValue" type="Label" parent="HUDSpinsLeft"]
 layout_mode = 0
 offset_left = 122.0
 offset_top = 116.0
@@ -801,7 +744,152 @@ theme_override_font_sizes/font_size = 48
 text = "100"
 horizontal_alignment = 1
 
-[connection signal="timeout" from="ResultArea/SpawnStaggerTimer" to="." method="_on_spawn_stagger_timer_timeout"]
-[connection signal="pressed" from="MainMenu/VBoxContainer/PlayButton" to="MainMenu" method="_on_play_button_pressed"]
-[connection signal="pressed" from="MainMenu/VBoxContainer/SettingsButton" to="MainMenu" method="_on_settings_button_pressed"]
+[node name="IdleMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 936.0
+offset_top = 648.0
+offset_right = 936.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("35_tu6d5")
+
+[node name="Banner" type="NinePatchRect" parent="IdleMenu"]
+clip_contents = true
+custom_minimum_size = Vector2(806.57, 200)
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 128.0
+texture = ExtResource("30_dfnrg")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="GridContainer" type="GridContainer" parent="IdleMenu"]
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 0
+offset_left = 86.0
+offset_top = 70.0
+offset_right = 726.0
+offset_bottom = 134.0
+theme_override_constants/h_separation = 32
+columns = 3
+
+[node name="NewButtonGroup" type="Control" parent="IdleMenu/GridContainer"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+
+[node name="BackFrame" type="NinePatchRect" parent="IdleMenu/GridContainer/NewButtonGroup"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 64.0
+texture = ExtResource("35_pu66i")
+region_rect = Rect2(0, 0, 192, 64)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="NewButton" type="TextureButton" parent="IdleMenu/GridContainer/NewButtonGroup"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("22_q6ssx")
+texture_pressed = ExtResource("36_v4tw5")
+texture_hover = ExtResource("22_q6ssx")
+texture_disabled = ExtResource("36_v4tw5")
+
+[node name="Label" type="Label" parent="IdleMenu/GridContainer/NewButtonGroup"]
+custom_minimum_size = Vector2(192, 36)
+layout_mode = 0
+offset_top = 6.0
+offset_right = 192.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 26
+text = "new"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButtonGroup" type="Control" parent="IdleMenu/GridContainer"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+
+[node name="BackFrame" type="NinePatchRect" parent="IdleMenu/GridContainer/ContinueButtonGroup"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 64.0
+texture = ExtResource("35_pu66i")
+region_rect = Rect2(0, 0, 192, 64)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="TextureButton" type="TextureButton" parent="IdleMenu/GridContainer/ContinueButtonGroup"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+disabled = true
+texture_normal = ExtResource("22_q6ssx")
+texture_pressed = ExtResource("36_v4tw5")
+texture_hover = ExtResource("22_q6ssx")
+texture_disabled = ExtResource("36_v4tw5")
+texture_focused = ExtResource("22_q6ssx")
+
+[node name="Label" type="Label" parent="IdleMenu/GridContainer/ContinueButtonGroup"]
+custom_minimum_size = Vector2(192, 36)
+layout_mode = 0
+offset_top = 6.0
+offset_right = 192.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 26
+text = "continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButtonGroup" type="Control" parent="IdleMenu/GridContainer"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+
+[node name="BackFrame" type="NinePatchRect" parent="IdleMenu/GridContainer/QuitButtonGroup"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 64.0
+texture = ExtResource("35_pu66i")
+region_rect = Rect2(0, 0, 192, 64)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="TextureButton" type="TextureButton" parent="IdleMenu/GridContainer/QuitButtonGroup"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("22_q6ssx")
+texture_pressed = ExtResource("36_v4tw5")
+texture_hover = ExtResource("22_q6ssx")
+texture_disabled = ExtResource("36_v4tw5")
+texture_focused = ExtResource("22_q6ssx")
+
+[node name="Label" type="Label" parent="IdleMenu/GridContainer/QuitButtonGroup"]
+custom_minimum_size = Vector2(192, 36)
+layout_mode = 0
+offset_top = 6.0
+offset_right = 192.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("11_sx1el")
+theme_override_font_sizes/font_size = 26
+text = "quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="TopBar/CloseButton" to="TopBar" method="_on_close_button_pressed"]
+[connection signal="pressed" from="IdleMenu/GridContainer/NewButtonGroup/NewButton" to="GameManager/IdleState" method="_on_new_button_pressed"]

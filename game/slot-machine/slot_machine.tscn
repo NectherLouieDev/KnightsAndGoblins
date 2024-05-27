@@ -29,8 +29,11 @@ texture = ExtResource("8_ydl3m")
 
 [sub_resource type="Theme" id="Theme_cp18x"]
 
-[node name="SlotMachine" type="Node2D"]
+[node name="SlotMachine" type="Node2D" node_paths=PackedStringArray("reels_mask", "stagger_timer", "spin_button")]
 script = ExtResource("1_rikjq")
+reels_mask = NodePath("SlotBanner/ReelsMask1")
+stagger_timer = NodePath("StaggerTimer")
+spin_button = NodePath("SpinButtonGroup/SpinButton")
 
 [node name="StaggerTimer" type="Timer" parent="."]
 wait_time = 0.15

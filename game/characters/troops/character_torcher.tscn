@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://dw3u81ih51huq"]
 
-[ext_resource type="Script" path="res://game/characters/character_torcher.gd" id="1_3yp5p"]
+[ext_resource type="Script" path="res://game/characters/troops/character_torcher.gd" id="1_3yp5p"]
 [ext_resource type="Texture2D" uid="uid://bt0r58kf1668l" path="res://game/assets/goblins/Torch_Blue.png" id="1_eqab5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yixjd"]

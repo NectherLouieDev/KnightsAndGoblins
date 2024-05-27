@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1e8666gxiogo"]
+
+[ext_resource type="Script" path="res://game/characters/enemies/enemy.gd" id="1_g6ucy"]
+[ext_resource type="Texture2D" uid="uid://cabqjx4uuthfi" path="res://game/assets/enemies/skeleton/Skeleton - Base/Idle/Idle-Sheet.png" id="2_6gpgc"]
+[ext_resource type="Texture2D" uid="uid://beyqjk1pyobyl" path="res://game/assets/deco/18.png" id="2_thouq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pmfb"]
+atlas = ExtResource("2_6gpgc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63cgj"]
+atlas = ExtResource("2_6gpgc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgrof"]
+atlas = ExtResource("2_6gpgc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc573"]
+atlas = ExtResource("2_6gpgc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epigh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pmfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63cgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgrof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc573")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_g6ucy")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_epigh")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.527523
+flip_h = true
+
+[node name="HitSprite" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -96)
+texture = ExtResource("2_thouq")

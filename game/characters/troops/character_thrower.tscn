@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://cxu5tfatymr0n"]
 
-[ext_resource type="Script" path="res://game/characters/character_thrower.gd" id="1_cy7x0"]
+[ext_resource type="Script" path="res://game/characters/troops/character_thrower.gd" id="1_cy7x0"]
 [ext_resource type="Texture2D" uid="uid://dxxsgi3yvfb88" path="res://game/assets/goblins/TNT_Blue.png" id="1_klsq4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nufq0"]

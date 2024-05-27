@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DataTroop" load_steps=4 format=3 uid="uid://brmqlbvhqrvik"]
 
-[ext_resource type="PackedScene" uid="uid://qvqtxa786st3" path="res://game/characters/character_archer.tscn" id="1_38ti4"]
+[ext_resource type="PackedScene" uid="uid://qvqtxa786st3" path="res://game/characters/troops/character_archer.tscn" id="1_38ti4"]
 [ext_resource type="Script" path="res://game/resources/troops/data_troop.gd" id="1_llaqp"]
 [ext_resource type="PackedScene" uid="uid://cp87of0tsvm5k" path="res://game/gameplay/projectile_arrow.tscn" id="2_l41gv"]
 

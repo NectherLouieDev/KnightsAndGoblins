@@ -1,5 +1,10 @@
 class_name DataGameplay extends Resource
 
+# Game states
+enum GameState {LOAD, IDLE, PLAY, GAMEOVER}
+@export var game_state_id: GameState;
+
+# spins left
 signal spins_left_updated_signal()
 
 @export var spins_left_reset: int = 100

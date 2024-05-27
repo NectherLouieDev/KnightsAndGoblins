@@ -3,7 +3,7 @@ class_name SpawnPoint
 extends Node2D
 
 signal attack_started_signal(index, type)
-signal attack_complete_signal()
+signal attack_complete_signal(spawn_point)
 
 const TROOPS_MODEL = preload("res://game/resources/troops_model.tres")
 
@@ -72,5 +72,5 @@ func _attack_complete(path, child):
 	can_walk = false
 	char = null
 	
-	emit_signal("attack_complete_signal")
+	emit_signal("attack_complete_signal", self)
 	queue_free()

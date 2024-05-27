@@ -2,18 +2,17 @@ class_name SlotMachine
 
 extends Node2D
 
+signal  spin_started_signal()
 signal  spin_complete_signal()
 
-const DATA_GAMEPLAY = preload("res://game/resources/gameplay/data_gameplay.tres")
-
-@onready var reels_mask = $SlotBanner/ReelsMask1
+@export var reels_mask: Control
 
 var reelstrips: Array = []
 var reel_count = 5
 var reel_index = 0
 
-@onready var stagger_timer = $StaggerTimer
-@onready var spin_button = $SpinButtonGroup/SpinButton
+@export var stagger_timer: Timer
+@export var spin_button: Button
 
 func create_slot_machine():
 	reelstrips = []
@@ -31,12 +30,9 @@ func create_slot_machine():
 		var reelstrip = reelstrips[i]
 		reelstrip.init(i)
 		reelstrip.create_symbols()
-		
-	enable_spin_button()
 
 func _on_spin_button_pressed():
-	disable_spin_button()
-	DATA_GAMEPLAY.decrease_spins_left()
+	emit_signal("spin_started_signal")
 	stagger_timer.start()
 
 func _on_spin_complete():

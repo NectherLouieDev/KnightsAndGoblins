@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://ds560i6tgw0kt"]
 
-[ext_resource type="Script" path="res://game/characters/character_warrior.gd" id="1_bmxk6"]
+[ext_resource type="Script" path="res://game/characters/troops/character_warrior.gd" id="1_bmxk6"]
 [ext_resource type="Texture2D" uid="uid://35j5owxw4sqn" path="res://game/assets/knights/Warrior_Blue.png" id="1_jhabs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8sgw"]

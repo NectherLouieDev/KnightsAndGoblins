@@ -54,7 +54,7 @@ func launch(target):
 	var distance = abs(target_position.x - global_position.x)
 	var max_height = (distance / screen_size.x) * screen_size.y * 0.4
 	
-	var height_multiplier = 8
+	var height_multiplier = 6
 	var arc_height = target_position.y - global_position.y - max_height
 	arc_height = min(arc_height, -max_height) * height_multiplier
 	

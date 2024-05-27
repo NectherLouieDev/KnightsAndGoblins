@@ -1,6 +1,4 @@
-class_name Dummy
-
-extends Node2D
+class_name Dummy extends Node2D
 
 var shake = 0.3
 var shake_duration = 0.05

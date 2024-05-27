@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DataTroop" load_steps=4 format=3 uid="uid://dnpl2l41ehvxk"]
 
 [ext_resource type="Script" path="res://game/resources/troops/data_troop.gd" id="1_klnwj"]
-[ext_resource type="PackedScene" uid="uid://cxu5tfatymr0n" path="res://game/characters/character_thrower.tscn" id="1_sc4vj"]
+[ext_resource type="PackedScene" uid="uid://cxu5tfatymr0n" path="res://game/characters/troops/character_thrower.tscn" id="1_sc4vj"]
 [ext_resource type="PackedScene" uid="uid://5dfyytkh5bvg" path="res://game/gameplay/projectile_dynamite.tscn" id="2_bypq3"]
 
 [resource]

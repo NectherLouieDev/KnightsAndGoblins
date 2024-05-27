@@ -9,4 +9,3 @@
 [resource]
 script = ExtResource("1_03rd4")
 troops = Array[Resource("res://game/resources/troops/data_troop.gd")]([ExtResource("2_7a15y"), ExtResource("3_l3q7m"), ExtResource("4_i1icx"), ExtResource("5_esqix")])
-troop = {}
